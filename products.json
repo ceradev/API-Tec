@@ -1,0 +1,352 @@
+[
+    {
+        "id": 1,
+        "nombre": "Tarjeta Gráfica GTX 1080",
+        "cantidad": 50,
+        "precio": 499.99,
+        "descripcion": "Potente tarjeta gráfica para gaming de alta gama."
+    },
+    {
+        "id": 2,
+        "nombre": "SSD Samsung 1TB",
+        "cantidad": 100,
+        "precio": 129.99,
+        "descripcion": "Unidad de estado sólido de alta capacidad para almacenamiento rápido."
+    },
+    {
+        "id": 3,
+        "nombre": "Procesador Intel Core i9-9900K",
+        "cantidad": 30,
+        "precio": 499.99,
+        "descripcion": "Procesador de alto rendimiento para aplicaciones exigentes y juegos."
+    },
+    {
+        "id": 4,
+        "nombre": "Monitor Gaming ASUS ROG Swift",
+        "cantidad": 20,
+        "precio": 699.99,
+        "descripcion": "Monitor de alta frecuencia de actualización y baja latencia para jugadores profesionales."
+    },
+    {
+        "id": 5,
+        "nombre": "Teclado Mecánico RGB Corsair K95",
+        "cantidad": 40,
+        "precio": 149.99,
+        "descripcion": "Teclado mecánico premium con retroiluminación RGB personalizable."
+    },
+    {
+        "id": 6,
+        "nombre": "Mouse Logitech G Pro X",
+        "cantidad": 60,
+        "precio": 79.99,
+        "descripcion": "Mouse gaming ligero y personalizable con sensor de alta precisión."
+    },
+    {
+        "id": 7,
+        "nombre": "Auriculares Inalámbricos Sony WH-1000XM4",
+        "cantidad": 25,
+        "precio": 349.99,
+        "descripcion": "Auriculares con cancelación de ruido líder en la industria y calidad de sonido excepcional."
+    },
+    {
+        "id": 8,
+        "nombre": "Placa Base ASUS ROG Strix Z590-E",
+        "cantidad": 15,
+        "precio": 299.99,
+        "descripcion": "Placa base de alta gama con soporte para las últimas tecnologías y características gaming."
+    },
+    {
+        "id": 9,
+        "nombre": "Impresora 3D Creality Ender 3",
+        "cantidad": 35,
+        "precio": 249.99,
+        "descripcion": "Impresora 3D popular y asequible para entusiastas y makers."
+    },
+    {
+        "id": 10,
+        "nombre": "Cámara Logitech C920 HD Pro",
+        "cantidad": 18,
+        "precio": 79.99,
+        "descripcion": "Cámara web de alta definición con calidad de video excepcional para conferencias y transmisiones."
+    },
+    {
+        "id": 11,
+        "nombre": "Router Inalámbrico TP-Link Archer C4000",
+        "cantidad": 22,
+        "precio": 199.99,
+        "descripcion": "Router de alto rendimiento con triple banda y capacidad para múltiples dispositivos."
+    },
+    {
+        "id": 12,
+        "nombre": "Pantalla Curva Samsung Odyssey G7",
+        "cantidad": 8,
+        "precio": 699.99,
+        "descripcion": "Monitor curvo de gaming con resolución QHD y tasa de refresco de 240Hz."
+    },
+    {
+        "id": 13,
+        "nombre": "Altavoces Bluetooth JBL Flip 5",
+        "cantidad": 45,
+        "precio": 99.99,
+        "descripcion": "Altavoces portátiles resistentes al agua con sonido potente y batería de larga duración."
+    },
+    {
+        "id": 14,
+        "nombre": "Laptop Dell XPS 13",
+        "cantidad": 12,
+        "precio": 1299.99,
+        "descripcion": "Laptop ultradelgada con pantalla InfinityEdge y procesador potente."
+    },
+    {
+        "id": 15,
+        "nombre": "Impresora Multifunción HP OfficeJet Pro 9015",
+        "cantidad": 30,
+        "precio": 229.99,
+        "descripcion": "Impresora multifunción con funciones avanzadas y conectividad inalámbrica."
+    },
+    {
+        "id": 16,
+        "nombre": "Robot Aspirador iRobot Roomba 980",
+        "cantidad": 15,
+        "precio": 499.99,
+        "descripcion": "Robot aspirador inteligente con mapeo de habitaciones y navegación avanzada."
+    },
+    {
+        "id": 17,
+        "nombre": "Teclado y Ratón Inalámbricos Logitech MK850",
+        "cantidad": 25,
+        "precio": 89.99,
+        "descripcion": "Combo de teclado y ratón inalámbricos con conectividad Bluetooth y ergonomía mejorada."
+    },
+    {
+        "id": 18,
+        "nombre": "Cámara Mirrorless Sony Alpha a7 III",
+        "cantidad": 10,
+        "precio": 1999.99,
+        "descripcion": "Cámara sin espejo de alta gama con sensor full-frame y capacidad de grabación de video 4K."
+    },
+    {
+        "id": 19,
+        "nombre": "Micrófono USB Blue Yeti",
+        "cantidad": 20,
+        "precio": 129.99,
+        "descripcion": "Micrófono USB de calidad profesional para grabación y transmisión de audio."
+    },
+    {
+        "id": 20,
+        "nombre": "Smartwatch Apple Watch Series 7",
+        "cantidad": 35,
+        "precio": 399.99,
+        "descripcion": "Smartwatch avanzado con pantalla siempre encendida y seguimiento integral de la salud."
+    },
+    {
+        "id": 21,
+        "nombre": "Batería Externa Anker PowerCore 26800mAh",
+        "cantidad": 40,
+        "precio": 59.99,
+        "descripcion": "Batería externa de alta capacidad con tecnología de carga rápida."
+    },
+    {
+        "id": 22,
+        "nombre": "Impresora 3D Resina Anycubic Photon Mono X",
+        "cantidad": 18,
+        "precio": 369.99,
+        "descripcion": "Impresora 3D de resina con pantalla monocromática y alta precisión."
+    },
+    {
+        "id": 23,
+        "nombre": "Router Mesh Google Nest WiFi",
+        "cantidad": 25,
+        "precio": 169.99,
+        "descripcion": "Sistema de router mesh para una cobertura de red sólida en todo el hogar."
+    },
+    {
+        "id": 24,
+        "nombre": "Kit de Desarrollo Raspberry Pi 4",
+        "cantidad": 30,
+        "precio": 89.99,
+        "descripcion": "Mini computadora de bajo costo para proyectos de desarrollo y educación."
+    },
+    {
+        "id": 25,
+        "nombre": "Silla Gaming Secretlab Omega Series",
+        "cantidad": 15,
+        "precio": 349.99,
+        "descripcion": "Silla ergonómica diseñada para sesiones de juego cómodas y prolongadas."
+    },
+    {
+        "id": 26,
+        "nombre": "Cámara de Seguridad Arlo Pro 4",
+        "cantidad": 28,
+        "precio": 199.99,
+        "descripcion": "Cámara de seguridad inalámbrica con resolución 2K y visión nocturna."
+    },
+    {
+        "id": 27,
+        "nombre": "Teclado para Juegos Razer BlackWidow Elite",
+        "cantidad": 22,
+        "precio": 169.99,
+        "descripcion": "Teclado mecánico para juegos con retroiluminación Chroma RGB personalizable."
+    },
+    {
+        "id": 28,
+        "nombre": "Proyector Epson Home Cinema 5050UB",
+        "cantidad": 10,
+        "precio": 2999.99,
+        "descripcion": "Proyector 4K con tecnología HDR y mejora de imagen avanzada."
+    },
+    {
+        "id": 29,
+        "nombre": "Tableta Gráfica Wacom Intuos Pro",
+        "cantidad": 15,
+        "precio": 349.99,
+        "descripcion": "Tableta gráfica profesional para ilustradores y diseñadores."
+    },
+    {
+        "id": 30,
+        "nombre": "Auriculares In-Ear Bose QuietComfort Earbuds",
+        "cantidad": 20,
+        "precio": 279.99,
+        "descripcion": "Auriculares inalámbricos con cancelación de ruido y ajuste cómodo."
+    },
+    {
+        "id": 31,
+        "nombre": "Monitor Ultrawide LG 34GN850-B",
+        "cantidad": 8,
+        "precio": 799.99,
+        "descripcion": "Monitor ultrapanorámico para una experiencia inmersiva en juegos y trabajo."
+    },
+    {
+        "id": 32,
+        "nombre": "Mochila para Portátil SwissGear 1900",
+        "cantidad": 25,
+        "precio": 89.99,
+        "descripcion": "Mochila resistente con compartimento acolchado para portátil y múltiples bolsillos."
+    },
+    {
+        "id": 33,
+        "nombre": "Sistema de Altavoces Sonos Beam",
+        "cantidad": 12,
+        "precio": 399.99,
+        "descripcion": "Barra de sonido inteligente con asistente de voz integrado y conectividad inalámbrica."
+    },
+    {
+        "id": 34,
+        "nombre": "Impresora Fotográfica Canon SELPHY CP1300",
+        "cantidad": 18,
+        "precio": 129.99,
+        "descripcion": "Impresora compacta para fotos con opciones de impresión inalámbrica y tarjetas de memoria."
+    },
+    {
+        "id": 35,
+        "nombre": "Auriculares VR Oculus Quest 2",
+        "cantidad": 15,
+        "precio": 299.99,
+        "descripcion": "Auriculares de realidad virtual todo en uno con controladores táctiles."
+    },
+    {
+        "id": 36,
+        "nombre": "Monitor 4K Dell UltraSharp U2720Q",
+        "cantidad": 10,
+        "precio": 599.99,
+        "descripcion": "Monitor 4K con amplia gama de colores y diseño sin bordes."
+    },
+    {
+        "id": 37,
+        "nombre": "Router Gaming ASUS RT-AX82U",
+        "cantidad": 14,
+        "precio": 229.99,
+        "descripcion": "Router de juego con tecnología Wi-Fi 6 y optimización para transmisión en vivo."
+    },
+    {
+        "id": 38,
+        "nombre": "Cámara Deportiva GoPro HERO9 Black",
+        "cantidad": 25,
+        "precio": 449.99,
+        "descripcion": "Cámara de acción con video 5K, pantalla frontal y resistencia al agua."
+    },
+    {
+        "id": 39,
+        "nombre": "Teclado Retroiluminado HyperX Alloy FPS Pro",
+        "cantidad": 18,
+        "precio": 79.99,
+        "descripcion": "Teclado compacto para juegos con interruptores mecánicos y retroiluminación roja."
+    },
+    {
+        "id": 40,
+        "nombre": "Silla Ergonómica Steelcase Gesture",
+        "cantidad": 7,
+        "precio": 1099.99,
+        "descripcion": "Silla de oficina ergonómica con soporte ajustable para diferentes posturas."
+    },
+    {
+        "id": 41,
+        "nombre": "Barra de Sonido Samsung HW-Q950T",
+        "cantidad": 11,
+        "precio": 1499.99,
+        "descripcion": "Barra de sonido premium con sonido envolvente 9.1.4 y tecnología Dolby Atmos."
+    },
+    {
+        "id": 42,
+        "nombre": "Mousepad Corsair MM300",
+        "cantidad": 30,
+        "precio": 24.99,
+        "descripcion": "Mousepad extendido con superficie de tela y base antideslizante."
+    },
+    {
+        "id": 43,
+        "nombre": "Lámpara Inteligente Philips Hue",
+        "cantidad": 20,
+        "precio": 49.99,
+        "descripcion": "Lámpara inteligente con control de color y compatibilidad con asistentes de voz."
+    },
+    {
+        "id": 44,
+        "nombre": "Disco Duro Externo Seagate Expansion 2TB",
+        "cantidad": 22,
+        "precio": 64.99,
+        "descripcion": "Disco duro externo de alta capacidad para almacenamiento adicional."
+    },
+    {
+        "id": 45,
+        "nombre": "Micrófono Blue Yeti X",
+        "cantidad": 15,
+        "precio": 169.99,
+        "descripcion": "Micrófono USB con iluminación LED y configuración avanzada de patrones de captura."
+    },
+    {
+        "id": 46,
+        "nombre": "Smart TV Samsung QLED Q80A",
+        "cantidad": 8,
+        "precio": 1199.99,
+        "descripcion": "Televisor QLED con resolución 4K y tecnología Quantum HDR."
+    },
+    {
+        "id": 47,
+        "nombre": "Impresora láser Brother HL-L2350DW",
+        "cantidad": 15,
+        "precio": 129.99,
+        "descripcion": "Impresora láser monocromática compacta con impresión dúplex automática."
+    },
+    {
+        "id": 48,
+        "nombre": "Cámara Mirrorless Fujifilm X-T4",
+        "cantidad": 12,
+        "precio": 1699.99,
+        "descripcion": "Cámara sin espejo con estabilización de imagen y grabación de video 4K."
+    },
+    {
+        "id": 49,
+        "nombre": "Altavoces Sonos One (Gen 2)",
+        "cantidad": 20,
+        "precio": 199.99,
+        "descripcion": "Altavoces inteligentes con asistente de voz y calidad de sonido excepcional."
+    },
+    {
+        "id": 50,
+        "nombre": "Mesa de Escritorio Arozzi Arena Gaming",
+        "cantidad": 6,
+        "precio": 299.99,
+        "descripcion": "Mesa de juego espaciosa con superficie de mousepad integrada y diseño ergonómico."
+    }
+]
