@@ -1,0 +1,18 @@
+{
+  "name": "dew2023-apitec",
+  "version": "1.0.0",
+  "description": "API para tienda de informatica en Node.js. Gestiona productos, inventario, clientes y pedidos.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "express.js"
+  },
+  "author": "César A. Suárez Orizondo",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.1"
+  }
+}
