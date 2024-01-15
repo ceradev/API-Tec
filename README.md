@@ -15,8 +15,5 @@ DEW2023-APITec es un proyecto integral que busca desarrollar una robusta API y u
 - **Tecnologías Avanzadas:** Utiliza recursos vistos anteriormente, como temporizadores, web components o almacenamiento local.
 - **Base de Datos (Opcional):** Si buscas un desafío adicional, considera la implementación de una versión con base de datos en lugar de archivos JSON.
 
-## Contribuciones y Desarrollo
-¡Bienvenido a contribuir! Consulta nuestras pautas de contribución en [CONTRIBUTING.md](link-a-contributing.md) para participar en el desarrollo del proyecto. Se valora la creatividad y la exploración de características adicionales para mejorar la aplicación.
-
 ## Licencia
 Este proyecto se distribuye bajo la [Licencia MIT](LICENSE), permitiendo la libre utilización y modificación. ¡Únete a nosotros para crear una experiencia completa y eficiente para los usuarios!
