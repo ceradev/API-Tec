@@ -1,352 +1,347 @@
 [
-    {
-        "id": 1,
-        "nombre": "Tarjeta Gráfica GTX 1080",
-        "cantidad": 50,
-        "precio": 499.99,
-        "descripcion": "Potente tarjeta gráfica para gaming de alta gama."
-    },
-    {
-        "id": 2,
-        "nombre": "SSD Samsung 1TB",
-        "cantidad": 100,
-        "precio": 129.99,
-        "descripcion": "Unidad de estado sólido de alta capacidad para almacenamiento rápido."
-    },
-    {
-        "id": 3,
-        "nombre": "Procesador Intel Core i9-9900K",
-        "cantidad": 30,
-        "precio": 499.99,
-        "descripcion": "Procesador de alto rendimiento para aplicaciones exigentes y juegos."
-    },
-    {
-        "id": 4,
-        "nombre": "Monitor Gaming ASUS ROG Swift",
-        "cantidad": 20,
-        "precio": 699.99,
-        "descripcion": "Monitor de alta frecuencia de actualización y baja latencia para jugadores profesionales."
-    },
-    {
-        "id": 5,
-        "nombre": "Teclado Mecánico RGB Corsair K95",
-        "cantidad": 40,
-        "precio": 149.99,
-        "descripcion": "Teclado mecánico premium con retroiluminación RGB personalizable."
-    },
-    {
-        "id": 6,
-        "nombre": "Mouse Logitech G Pro X",
-        "cantidad": 60,
-        "precio": 79.99,
-        "descripcion": "Mouse gaming ligero y personalizable con sensor de alta precisión."
-    },
-    {
-        "id": 7,
-        "nombre": "Auriculares Inalámbricos Sony WH-1000XM4",
-        "cantidad": 25,
-        "precio": 349.99,
-        "descripcion": "Auriculares con cancelación de ruido líder en la industria y calidad de sonido excepcional."
-    },
-    {
-        "id": 8,
-        "nombre": "Placa Base ASUS ROG Strix Z590-E",
-        "cantidad": 15,
-        "precio": 299.99,
-        "descripcion": "Placa base de alta gama con soporte para las últimas tecnologías y características gaming."
-    },
-    {
-        "id": 9,
-        "nombre": "Impresora 3D Creality Ender 3",
-        "cantidad": 35,
-        "precio": 249.99,
-        "descripcion": "Impresora 3D popular y asequible para entusiastas y makers."
-    },
-    {
-        "id": 10,
-        "nombre": "Cámara Logitech C920 HD Pro",
-        "cantidad": 18,
-        "precio": 79.99,
-        "descripcion": "Cámara web de alta definición con calidad de video excepcional para conferencias y transmisiones."
-    },
-    {
-        "id": 11,
-        "nombre": "Router Inalámbrico TP-Link Archer C4000",
-        "cantidad": 22,
-        "precio": 199.99,
-        "descripcion": "Router de alto rendimiento con triple banda y capacidad para múltiples dispositivos."
-    },
-    {
-        "id": 12,
-        "nombre": "Pantalla Curva Samsung Odyssey G7",
-        "cantidad": 8,
-        "precio": 699.99,
-        "descripcion": "Monitor curvo de gaming con resolución QHD y tasa de refresco de 240Hz."
-    },
-    {
-        "id": 13,
-        "nombre": "Altavoces Bluetooth JBL Flip 5",
-        "cantidad": 45,
-        "precio": 99.99,
-        "descripcion": "Altavoces portátiles resistentes al agua con sonido potente y batería de larga duración."
-    },
-    {
-        "id": 14,
-        "nombre": "Laptop Dell XPS 13",
-        "cantidad": 12,
-        "precio": 1299.99,
-        "descripcion": "Laptop ultradelgada con pantalla InfinityEdge y procesador potente."
-    },
-    {
-        "id": 15,
-        "nombre": "Impresora Multifunción HP OfficeJet Pro 9015",
-        "cantidad": 30,
-        "precio": 229.99,
-        "descripcion": "Impresora multifunción con funciones avanzadas y conectividad inalámbrica."
-    },
-    {
-        "id": 16,
-        "nombre": "Robot Aspirador iRobot Roomba 980",
-        "cantidad": 15,
-        "precio": 499.99,
-        "descripcion": "Robot aspirador inteligente con mapeo de habitaciones y navegación avanzada."
-    },
-    {
-        "id": 17,
-        "nombre": "Teclado y Ratón Inalámbricos Logitech MK850",
-        "cantidad": 25,
-        "precio": 89.99,
-        "descripcion": "Combo de teclado y ratón inalámbricos con conectividad Bluetooth y ergonomía mejorada."
-    },
-    {
-        "id": 18,
-        "nombre": "Cámara Mirrorless Sony Alpha a7 III",
-        "cantidad": 10,
-        "precio": 1999.99,
-        "descripcion": "Cámara sin espejo de alta gama con sensor full-frame y capacidad de grabación de video 4K."
-    },
-    {
-        "id": 19,
-        "nombre": "Micrófono USB Blue Yeti",
-        "cantidad": 20,
-        "precio": 129.99,
-        "descripcion": "Micrófono USB de calidad profesional para grabación y transmisión de audio."
-    },
-    {
-        "id": 20,
-        "nombre": "Smartwatch Apple Watch Series 7",
-        "cantidad": 35,
-        "precio": 399.99,
-        "descripcion": "Smartwatch avanzado con pantalla siempre encendida y seguimiento integral de la salud."
-    },
-    {
-        "id": 21,
-        "nombre": "Batería Externa Anker PowerCore 26800mAh",
-        "cantidad": 40,
-        "precio": 59.99,
-        "descripcion": "Batería externa de alta capacidad con tecnología de carga rápida."
-    },
-    {
-        "id": 22,
-        "nombre": "Impresora 3D Resina Anycubic Photon Mono X",
-        "cantidad": 18,
-        "precio": 369.99,
-        "descripcion": "Impresora 3D de resina con pantalla monocromática y alta precisión."
-    },
-    {
-        "id": 23,
-        "nombre": "Router Mesh Google Nest WiFi",
-        "cantidad": 25,
-        "precio": 169.99,
-        "descripcion": "Sistema de router mesh para una cobertura de red sólida en todo el hogar."
-    },
-    {
-        "id": 24,
-        "nombre": "Kit de Desarrollo Raspberry Pi 4",
-        "cantidad": 30,
-        "precio": 89.99,
-        "descripcion": "Mini computadora de bajo costo para proyectos de desarrollo y educación."
-    },
-    {
-        "id": 25,
-        "nombre": "Silla Gaming Secretlab Omega Series",
-        "cantidad": 15,
-        "precio": 349.99,
-        "descripcion": "Silla ergonómica diseñada para sesiones de juego cómodas y prolongadas."
-    },
-    {
-        "id": 26,
-        "nombre": "Cámara de Seguridad Arlo Pro 4",
-        "cantidad": 28,
-        "precio": 199.99,
-        "descripcion": "Cámara de seguridad inalámbrica con resolución 2K y visión nocturna."
-    },
-    {
-        "id": 27,
-        "nombre": "Teclado para Juegos Razer BlackWidow Elite",
-        "cantidad": 22,
-        "precio": 169.99,
-        "descripcion": "Teclado mecánico para juegos con retroiluminación Chroma RGB personalizable."
-    },
-    {
-        "id": 28,
-        "nombre": "Proyector Epson Home Cinema 5050UB",
-        "cantidad": 10,
-        "precio": 2999.99,
-        "descripcion": "Proyector 4K con tecnología HDR y mejora de imagen avanzada."
-    },
-    {
-        "id": 29,
-        "nombre": "Tableta Gráfica Wacom Intuos Pro",
-        "cantidad": 15,
-        "precio": 349.99,
-        "descripcion": "Tableta gráfica profesional para ilustradores y diseñadores."
-    },
-    {
-        "id": 30,
-        "nombre": "Auriculares In-Ear Bose QuietComfort Earbuds",
-        "cantidad": 20,
-        "precio": 279.99,
-        "descripcion": "Auriculares inalámbricos con cancelación de ruido y ajuste cómodo."
-    },
-    {
-        "id": 31,
-        "nombre": "Monitor Ultrawide LG 34GN850-B",
-        "cantidad": 8,
-        "precio": 799.99,
-        "descripcion": "Monitor ultrapanorámico para una experiencia inmersiva en juegos y trabajo."
-    },
-    {
-        "id": 32,
-        "nombre": "Mochila para Portátil SwissGear 1900",
-        "cantidad": 25,
-        "precio": 89.99,
-        "descripcion": "Mochila resistente con compartimento acolchado para portátil y múltiples bolsillos."
-    },
-    {
-        "id": 33,
-        "nombre": "Sistema de Altavoces Sonos Beam",
-        "cantidad": 12,
-        "precio": 399.99,
-        "descripcion": "Barra de sonido inteligente con asistente de voz integrado y conectividad inalámbrica."
-    },
-    {
-        "id": 34,
-        "nombre": "Impresora Fotográfica Canon SELPHY CP1300",
-        "cantidad": 18,
-        "precio": 129.99,
-        "descripcion": "Impresora compacta para fotos con opciones de impresión inalámbrica y tarjetas de memoria."
-    },
-    {
-        "id": 35,
-        "nombre": "Auriculares VR Oculus Quest 2",
-        "cantidad": 15,
-        "precio": 299.99,
-        "descripcion": "Auriculares de realidad virtual todo en uno con controladores táctiles."
-    },
-    {
-        "id": 36,
-        "nombre": "Monitor 4K Dell UltraSharp U2720Q",
-        "cantidad": 10,
-        "precio": 599.99,
-        "descripcion": "Monitor 4K con amplia gama de colores y diseño sin bordes."
-    },
-    {
-        "id": 37,
-        "nombre": "Router Gaming ASUS RT-AX82U",
-        "cantidad": 14,
-        "precio": 229.99,
-        "descripcion": "Router de juego con tecnología Wi-Fi 6 y optimización para transmisión en vivo."
-    },
-    {
-        "id": 38,
-        "nombre": "Cámara Deportiva GoPro HERO9 Black",
-        "cantidad": 25,
-        "precio": 449.99,
-        "descripcion": "Cámara de acción con video 5K, pantalla frontal y resistencia al agua."
-    },
-    {
-        "id": 39,
-        "nombre": "Teclado Retroiluminado HyperX Alloy FPS Pro",
-        "cantidad": 18,
-        "precio": 79.99,
-        "descripcion": "Teclado compacto para juegos con interruptores mecánicos y retroiluminación roja."
-    },
-    {
-        "id": 40,
-        "nombre": "Silla Ergonómica Steelcase Gesture",
-        "cantidad": 7,
-        "precio": 1099.99,
-        "descripcion": "Silla de oficina ergonómica con soporte ajustable para diferentes posturas."
-    },
-    {
-        "id": 41,
-        "nombre": "Barra de Sonido Samsung HW-Q950T",
-        "cantidad": 11,
-        "precio": 1499.99,
-        "descripcion": "Barra de sonido premium con sonido envolvente 9.1.4 y tecnología Dolby Atmos."
-    },
-    {
-        "id": 42,
-        "nombre": "Mousepad Corsair MM300",
-        "cantidad": 30,
-        "precio": 24.99,
-        "descripcion": "Mousepad extendido con superficie de tela y base antideslizante."
-    },
-    {
-        "id": 43,
-        "nombre": "Lámpara Inteligente Philips Hue",
-        "cantidad": 20,
-        "precio": 49.99,
-        "descripcion": "Lámpara inteligente con control de color y compatibilidad con asistentes de voz."
-    },
-    {
-        "id": 44,
-        "nombre": "Disco Duro Externo Seagate Expansion 2TB",
-        "cantidad": 22,
-        "precio": 64.99,
-        "descripcion": "Disco duro externo de alta capacidad para almacenamiento adicional."
-    },
-    {
-        "id": 45,
-        "nombre": "Micrófono Blue Yeti X",
-        "cantidad": 15,
-        "precio": 169.99,
-        "descripcion": "Micrófono USB con iluminación LED y configuración avanzada de patrones de captura."
-    },
-    {
-        "id": 46,
-        "nombre": "Smart TV Samsung QLED Q80A",
-        "cantidad": 8,
-        "precio": 1199.99,
-        "descripcion": "Televisor QLED con resolución 4K y tecnología Quantum HDR."
-    },
-    {
-        "id": 47,
-        "nombre": "Impresora láser Brother HL-L2350DW",
-        "cantidad": 15,
-        "precio": 129.99,
-        "descripcion": "Impresora láser monocromática compacta con impresión dúplex automática."
-    },
-    {
-        "id": 48,
-        "nombre": "Cámara Mirrorless Fujifilm X-T4",
-        "cantidad": 12,
-        "precio": 1699.99,
-        "descripcion": "Cámara sin espejo con estabilización de imagen y grabación de video 4K."
-    },
-    {
-        "id": 49,
-        "nombre": "Altavoces Sonos One (Gen 2)",
-        "cantidad": 20,
-        "precio": 199.99,
-        "descripcion": "Altavoces inteligentes con asistente de voz y calidad de sonido excepcional."
-    },
-    {
-        "id": 50,
-        "nombre": "Mesa de Escritorio Arozzi Arena Gaming",
-        "cantidad": 6,
-        "precio": 299.99,
-        "descripcion": "Mesa de juego espaciosa con superficie de mousepad integrada y diseño ergonómico."
-    }
+  {
+    "id": 1,
+    "nombre_usuario": "Tina",
+    "componentes_pc": [
+      { "id": 1, "nombre": "Tarjeta Gráfica GTX 1080", "cantidad": 1, "precio": 499.99, "descripcion": "Potente tarjeta gráfica para gaming de alta gama." },
+      { "id": 2, "nombre": "SSD Samsung 1TB", "cantidad": 2, "precio": 129.99, "descripcion": "Unidad de estado sólido de alta capacidad para almacenamiento rápido." },
+      { "id": 3, "nombre": "Procesador AMD Ryzen 7 5800X", "cantidad": 1, "precio": 449.99, "descripcion": "Procesador de última generación para un rendimiento excepcional." },
+      { "id": 4, "nombre": "Placa Base ASUS ROG Strix B550-F", "cantidad": 1, "precio": 199.99, "descripcion": "Placa base de alta gama para soportar hardware avanzado." },
+      { "id": 5, "nombre": "Memoria RAM Corsair Vengeance RGB Pro 32GB", "cantidad": 2, "precio": 199.99, "descripcion": "Módulos de memoria RAM con iluminación RGB para un rendimiento óptimo." },
+      { "id": 6, "nombre": "Fuente de Poder EVGA SuperNOVA 750W", "cantidad": 1, "precio": 129.99, "descripcion": "Fuente de poder eficiente y confiable para alimentar el sistema." },
+      { "id": 7, "nombre": "Gabinete NZXT H510", "cantidad": 1, "precio": 69.99, "descripcion": "Gabinete elegante y funcional con excelente gestión de cables." },
+      { "id": 8, "nombre": "Ventiladores RGB Corsair LL120", "cantidad": 3, "precio": 99.99, "descripcion": "Ventiladores de alta calidad con iluminación RGB para una refrigeración eficiente." },
+      { "id": 9, "nombre": "Monitor Acer Predator XB271HU", "cantidad": 1, "precio": 599.99, "descripcion": "Monitor IPS con G-Sync para una experiencia de juego suave." }
+    ]
+  },
+  {
+    "id": 2,
+    "nombre_usuario": "Ravid",
+    "componentes_pc": [
+      { "id": 1, "nombre": "Procesador Intel Core i9-9900K", "cantidad": 1, "precio": 499.99, "descripcion": "Procesador de alto rendimiento para aplicaciones exigentes y juegos." },
+      { "id": 2, "nombre": "Monitor Gaming ASUS ROG Swift", "cantidad": 1, "precio": 699.99, "descripcion": "Monitor de alta frecuencia de actualización y baja latencia para jugadores profesionales." },
+      { "id": 3, "nombre": "Teclado Mecánico Corsair K95 RGB", "cantidad": 1, "precio": 169.99, "descripcion": "Teclado mecánico premium con retroiluminación RGB personalizable." },
+      { "id": 4, "nombre": "Mouse Logitech G Pro Wireless", "cantidad": 1, "precio": 149.99, "descripcion": "Ratón inalámbrico de alto rendimiento para juegos." },
+      { "id": 5, "nombre": "Auriculares HyperX Cloud II", "cantidad": 1, "precio": 99.99, "descripcion": "Auriculares con sonido envolvente y micrófono desmontable." },
+      { "id": 6, "nombre": "SSD Crucial P5 1TB NVMe", "cantidad": 1, "precio": 149.99, "descripcion": "Unidad de estado sólido NVMe para velocidades de lectura/escritura ultrarrápidas." },
+      { "id": 7, "nombre": "Silla Gaming Secretlab Omega Series", "cantidad": 1, "precio": 359.99, "descripcion": "Silla ergonómica para largas sesiones de juego cómodas." },
+      { "id": 8, "nombre": "Impresora 3D Creality Ender 3", "cantidad": 1, "precio": 229.99, "descripcion": "Impresora 3D para proyectos creativos y prototipos." }
+    ]
+  },
+  {
+    "id": 3,
+    "nombre_usuario": "Sarajane",
+    "componentes_pc": [
+      { "id": 1, "nombre": "Memoria RAM Corsair 16GB", "cantidad": 2, "precio": 129.99, "descripcion": "Módulos de memoria RAM de alta velocidad para mejorar el rendimiento del sistema." },
+      { "id": 2, "nombre": "Disco Duro Seagate 2TB", "cantidad": 1, "precio": 79.99, "descripcion": "Disco duro de gran capacidad para almacenar datos y archivos multimedia." },
+      { "id": 3, "nombre": "Procesador AMD Ryzen 5 3600", "cantidad": 1, "precio": 249.99, "descripcion": "Procesador de seis núcleos para un rendimiento equilibrado." },
+      { "id": 4, "nombre": "Tarjeta Gráfica NVIDIA GeForce RTX 3060", "cantidad": 1, "precio": 399.99, "descripcion": "Tarjeta gráfica de gama media para juegos modernos." },
+      { "id": 5, "nombre": "Placa Base MSI B450 TOMAHAWK MAX", "cantidad": 1, "precio": 114.99, "descripcion": "Placa base sólida con amplias opciones de conectividad." },
+      { "id": 6, "nombre": "Monitor Dell Ultrasharp U2719DX", "cantidad": 1, "precio": 449.99, "descripcion": "Monitor IPS de alta resolución y colores precisos." },
+      { "id": 7, "nombre": "Cámara Logitech C920 HD Pro", "cantidad": 1, "precio": 79.99, "descripcion": "Cámara web de alta definición para videoconferencias y transmisiones en vivo." },
+      { "id": 8, "nombre": "Altavoces Logitech Z623", "cantidad": 1, "precio": 129.99, "descripcion": "Altavoces potentes para una experiencia de audio inmersiva." }
+    ]
+  },
+  {
+    "id": 4,
+    "nombre_usuario": "Brigitte",
+    "componentes_pc": [
+      { "id": 1, "nombre": "Monitor LG Ultrawide 34 pulgadas", "cantidad": 1, "precio": 599.99, "descripcion": "Monitor ultrawide para una experiencia de visualización inmersiva." },
+      { "id": 2, "nombre": "Tarjeta de Sonido Creative Sound Blaster", "cantidad": 1, "precio": 129.99, "descripcion": "Tarjeta de sonido de alta calidad para una experiencia de audio excepcional." },
+      { "id": 3, "nombre": "Impresora HP LaserJet Pro M404dn", "cantidad": 1, "precio": 249.99, "descripcion": "Impresora láser monocromática para documentos de alta calidad." },
+      { "id": 4, "nombre": "Escáner Epson Perfection V600", "cantidad": 1, "precio": 229.99, "descripcion": "Escáner de alta resolución para digitalizar fotos y documentos." },
+      { "id": 5, "nombre": "Router ASUS RT-AX86U", "cantidad": 1, "precio": 249.99, "descripcion": "Router de alta velocidad para una conexión de red estable." }
+    ]
+  },
+  {
+    "id": 5,
+    "nombre_usuario": "Del",
+    "componentes_pc": [
+      { "id": 1, "nombre": "Tarjeta Gráfica AMD Radeon RX 5700 XT", "cantidad": 1, "precio": 399.99, "descripcion": "Tarjeta gráfica para juegos de alta calidad y rendimiento." },
+      { "id": 2, "nombre": "SSD Crucial MX500 500GB", "cantidad": 1, "precio": 89.99, "descripcion": "Unidad de estado sólido para un almacenamiento rápido y confiable." },
+      { "id": 3, "nombre": "Procesador AMD Ryzen 5 2600", "cantidad": 1, "precio": 149.99, "descripcion": "Procesador de seis núcleos para tareas multitarea eficientes." },
+      { "id": 4, "nombre": "Placa Base Gigabyte B450 AORUS Elite", "cantidad": 1, "precio": 109.99, "descripcion": "Placa base de calidad con iluminación RGB personalizable." },
+      { "id": 5, "nombre": "Memoria RAM G.Skill Ripjaws V 8GB", "cantidad": 2, "precio": 64.99, "descripcion": "Módulos de memoria RAM DDR4 para un rendimiento rápido." }
+    ]
+  },
+  {
+    "id": 6,
+    "nombre_usuario": "Calvin",
+    "componentes_pc": [
+      { "id": 1, "nombre": "Procesador AMD Ryzen 5 3600X", "cantidad": 1, "precio": 249.99, "descripcion": "Procesador de seis núcleos para un rendimiento multitarea eficiente." },
+      { "id": 2, "nombre": "Tarjeta Gráfica NVIDIA GeForce GTX 1660 Super", "cantidad": 1, "precio": 249.99, "descripcion": "Tarjeta gráfica para juegos de alta calidad a 1080p." },
+      { "id": 3, "nombre": "SSD Kingston A2000 500GB NVMe", "cantidad": 1, "precio": 79.99, "descripcion": "Unidad de estado sólido NVMe para una carga rápida de aplicaciones y archivos." },
+      { "id": 4, "nombre": "Placa Base MSI B450 Gaming Plus MAX", "cantidad": 1, "precio": 109.99, "descripcion": "Placa base gaming con iluminación LED Mystic Light." },
+      { "id": 5, "nombre": "Memoria RAM HyperX Fury 16GB", "cantidad": 2, "precio": 89.99, "descripcion": "Módulos de memoria RAM DDR4 de alto rendimiento." },
+      { "id": 6, "nombre": "Monitor ASUS VG279Q", "cantidad": 1, "precio": 279.99, "descripcion": "Monitor IPS de 27 pulgadas con frecuencia de actualización de 144Hz." },
+      { "id": 7, "nombre": "Teclado Logitech G Pro X", "cantidad": 1, "precio": 149.99, "descripcion": "Teclado mecánico modular con interruptores intercambiables." },
+      { "id": 8, "nombre": "Silla Ergonómica Herman Miller Aeron", "cantidad": 1, "precio": 1449.99, "descripcion": "Silla de oficina premium con diseño ergonómico." }
+    ]
+  },
+  {
+    "id": 7,
+    "nombre_usuario": "Penn",
+    "componentes_pc": [
+      { "id": 1, "nombre": "Procesador Intel Core i7-10700K", "cantidad": 1, "precio": 399.99, "descripcion": "Procesador de alto rendimiento para juegos y aplicaciones intensivas." },
+      { "id": 2, "nombre": "Tarjeta Gráfica AMD Radeon RX 6800 XT", "cantidad": 1, "precio": 649.99, "descripcion": "Tarjeta gráfica para juegos en resolución 1440p y 4K." },
+      { "id": 3, "nombre": "SSD Crucial P2 1TB NVMe", "cantidad": 1, "precio": 129.99, "descripcion": "Unidad de estado sólido NVMe para almacenamiento rápido y eficiente." },
+      { "id": 4, "nombre": "Placa Base ASRock Z590 Phantom Gaming 4", "cantidad": 1, "precio": 189.99, "descripcion": "Placa base de alta gama con soporte para Wi-Fi 6." },
+      { "id": 5, "nombre": "Memoria RAM Corsair Dominator Platinum RGB 32GB", "cantidad": 2, "precio": 319.99, "descripcion": "Módulos de memoria RAM con iluminación RGB personalizable." },
+      { "id": 6, "nombre": "Monitor MSI Optix MAG271CQR", "cantidad": 1, "precio": 379.99, "descripcion": "Monitor curvo de 27 pulgadas con resolución Quad HD y 165Hz de frecuencia de actualización." },
+      { "id": 7, "nombre": "Mouse Razer DeathAdder Elite", "cantidad": 1, "precio": 69.99, "descripcion": "Ratón ergonómico para juegos con sensor óptico de alta precisión." },
+      { "id": 8, "nombre": "Impresora Epson EcoTank ET-4760", "cantidad": 1, "precio": 499.99, "descripcion": "Impresora de tanque de tinta para una impresión económica y eficiente." }
+    ]
+  },
+  {
+    "id": 8,
+    "nombre_usuario": "Rosalind",
+    "componentes_pc": [
+      { "id": 1, "nombre": "Procesador AMD Ryzen 9 5900X", "cantidad": 1, "precio": 549.99, "descripcion": "Procesador de gama alta para un rendimiento excepcional en aplicaciones exigentes." },
+      { "id": 2, "nombre": "Tarjeta Gráfica NVIDIA GeForce RTX 3080", "cantidad": 1, "precio": 799.99, "descripcion": "Potente tarjeta gráfica para juegos en resoluciones 4K." },
+      { "id": 3, "nombre": "SSD WD Black SN750 2TB NVMe", "cantidad": 1, "precio": 299.99, "descripcion": "Unidad de estado sólido NVMe de alta capacidad para almacenamiento rápido." },
+      { "id": 4, "nombre": "Placa Base Gigabyte X570 AORUS Elite", "cantidad": 1, "precio": 199.99, "descripcion": "Placa base de calidad con PCIe 4.0 para un rendimiento avanzado." },
+      { "id": 5, "nombre": "Memoria RAM Corsair Vengeance LPX 64GB", "cantidad": 4, "precio": 499.99, "descripcion": "Módulos de memoria RAM de gran capacidad para multitarea intensiva." },
+      { "id": 6, "nombre": "Monitor LG OLED48CXPUA", "cantidad": 1, "precio": 1499.99, "descripcion": "Televisor OLED de 48 pulgadas con soporte para juegos en 120Hz." },
+      { "id": 7, "nombre": "Teclado Razer BlackWidow Elite", "cantidad": 1, "precio": 169.99, "descripcion": "Teclado mecánico con interruptores Razer para una respuesta táctil precisa." },
+      { "id": 8, "nombre": "Silla Secretlab Titan XL", "cantidad": 1, "precio": 449.99, "descripcion": "Silla gaming con soporte lumbar y reposacabezas ajustables." }
+    ]
+  },
+  {
+    "id": 9,
+    "nombre_usuario": "Emanuel",
+    "componentes_pc": [
+      { "id": 1, "nombre": "Procesador Intel Core i5-11600K", "cantidad": 1, "precio": 269.99, "descripcion": "Procesador de seis núcleos para un rendimiento equilibrado." },
+      { "id": 2, "nombre": "Tarjeta Gráfica AMD Radeon RX 6700 XT", "cantidad": 1, "precio": 479.99, "descripcion": "Tarjeta gráfica para juegos de alta calidad a 1440p." },
+      { "id": 3, "nombre": "SSD Crucial BX500 1TB", "cantidad": 1, "precio": 99.99, "descripcion": "Unidad de estado sólido para almacenamiento rápido y eficiente." },
+      { "id": 4, "nombre": "Placa Base ASUS TUF Gaming B560-PLUS", "cantidad": 1, "precio": 129.99, "descripcion": "Placa base resistente con soporte para PCIe 4.0." },
+      { "id": 5, "nombre": "Memoria RAM G.Skill Trident Z RGB 32GB", "cantidad": 2, "precio": 279.99, "descripcion": "Módulos de memoria RAM con iluminación RGB para un sistema visualmente atractivo." },
+      { "id": 6, "nombre": "Monitor BenQ EX2780Q", "cantidad": 1, "precio": 449.99, "descripcion": "Monitor IPS de 27 pulgadas con altavoces incorporados y HDRi." },
+      { "id": 7, "nombre": "Mouse SteelSeries Rival 600", "cantidad": 1, "precio": 79.99, "descripcion": "Ratón gaming con sensor dual para un rendimiento preciso." },
+      { "id": 8, "nombre": "Impresora Canon PIXMA TS9520", "cantidad": 1, "precio": 179.99, "descripcion": "Impresora todo en uno para documentos y fotografías de alta calidad." }
+    ]
+  },
+  {
+    "id": 10,
+    "nombre_usuario": "Mariska",
+    "componentes_pc": [
+      { "id": 1, "nombre": "Procesador AMD Ryzen 7 3700X", "cantidad": 1, "precio": 329.99, "descripcion": "Procesador de ocho núcleos para un rendimiento multitarea eficiente." },
+      { "id": 2, "nombre": "Tarjeta Gráfica MSI GeForce GTX 1660 Super", "cantidad": 1, "precio": 269.99, "descripcion": "Tarjeta gráfica para juegos a 1080p con buen rendimiento." },
+      { "id": 3, "nombre": "SSD SanDisk Ultra 1TB", "cantidad": 1, "precio": 119.99, "descripcion": "Unidad de estado sólido para un almacenamiento rápido y confiable." },
+      { "id": 4, "nombre": "Placa Base ASRock B450M PRO4", "cantidad": 1, "precio": 89.99, "descripcion": "Placa base con amplias opciones de conectividad." },
+      { "id": 5, "nombre": "Memoria RAM Corsair Vengeance LPX 16GB", "cantidad": 2, "precio": 79.99, "descripcion": "Módulos de memoria RAM DDR4 para un rendimiento rápido." },
+      { "id": 6, "nombre": "Monitor AOC CQ32G1", "cantidad": 1, "precio": 299.99, "descripcion": "Monitor curvo de 31.5 pulgadas con resolución Quad HD y 144Hz de frecuencia de actualización." },
+      { "id": 7, "nombre": "Teclado HyperX Alloy FPS Pro", "cantidad": 1, "precio": 69.99, "descripcion": "Teclado mecánico compacto para jugadores." },
+      { "id": 8, "nombre": "Silla Ergonómica Autonomous MyoChair", "cantidad": 1, "precio": 199.99, "descripcion": "Silla de oficina ergonómica con soporte lumbar." }
+    ]
+  },
+  {
+    "id": 11,
+    "nombre_usuario": "Claiborne",
+    "componentes_pc": [
+      { "id": 1, "nombre": "Procesador AMD Ryzen 9 5950X", "cantidad": 1, "precio": 799.99, "descripcion": "Procesador de 16 núcleos para un rendimiento extremo en tareas intensivas." },
+      { "id": 2, "nombre": "Tarjeta Gráfica NVIDIA GeForce RTX 3090", "cantidad": 1, "precio": 1499.99, "descripcion": "Potente tarjeta gráfica para juegos 4K y renderización de contenido." },
+      { "id": 3, "nombre": "SSD Samsung 980 PRO 2TB NVMe", "cantidad": 1, "precio": 399.99, "descripcion": "Unidad de estado sólido NVMe ultrarrápida para almacenamiento de alta capacidad." },
+      { "id": 4, "nombre": "Placa Base ASUS ROG Crosshair VIII Dark Hero", "cantidad": 1, "precio": 699.99, "descripcion": "Placa base de alta gama con robustez y características premium." },
+      { "id": 5, "nombre": "Memoria RAM G.Skill Trident Z Royal 128GB", "cantidad": 4, "precio": 1299.99, "descripcion": "Módulos de memoria RAM DDR4 con iluminación RGB para un rendimiento extremo." },
+      { "id": 6, "nombre": "Monitor LG UltraFine 5K Display", "cantidad": 1, "precio": 1299.99, "descripcion": "Monitor de 27 pulgadas con resolución 5K para una calidad de imagen asombrosa." },
+      { "id": 7, "nombre": "Teclado Corsair K95 RGB Platinum XT", "cantidad": 1, "precio": 199.99, "descripcion": "Teclado mecánico con interruptores Cherry MX y retroiluminación RGB." },
+      { "id": 8, "nombre": "Silla Noblechairs HERO Series Black Edition", "cantidad": 1, "precio": 599.99, "descripcion": "Silla gaming de cuero genuino con comodidad y diseño premium." }
+    ]
+  },
+  {
+    "id": 12,
+    "nombre_usuario": "Nap",
+    "componentes_pc": [
+      { "id": 1, "nombre": "Procesador Intel Core i9-11900K", "cantidad": 1, "precio": 699.99, "descripcion": "Procesador de alto rendimiento para aplicaciones exigentes y juegos." },
+      { "id": 2, "nombre": "Tarjeta Gráfica AMD Radeon RX 6900 XT", "cantidad": 1, "precio": 1299.99, "descripcion": "Tarjeta gráfica para juegos 4K y rendimiento gráfico excepcional." },
+      { "id": 3, "nombre": "SSD WD Black SN850 2TB NVMe", "cantidad": 1, "precio": 449.99, "descripcion": "Unidad de estado sólido NVMe con velocidades de lectura/escritura ultrarrápidas." },
+      { "id": 4, "nombre": "Placa Base MSI MEG Z590 ACE", "cantidad": 1, "precio": 549.99, "descripcion": "Placa base de gama alta con prestaciones avanzadas y diseño elegante." },
+      { "id": 5, "nombre": "Memoria RAM Corsair Dominator Platinum RGB 64GB", "cantidad": 4, "precio": 799.99, "descripcion": "Módulos de memoria RAM DDR4 de alta capacidad y diseño elegante." },
+      { "id": 6, "nombre": "Monitor ASUS ROG Swift PG279Q", "cantidad": 1, "precio": 699.99, "descripcion": "Monitor IPS de 27 pulgadas con resolución 1440p y frecuencia de actualización de 165Hz." },
+      { "id": 7, "nombre": "Teclado Logitech G Pro X Mechanical Gaming Keyboard", "cantidad": 1, "precio": 149.99, "descripcion": "Teclado mecánico modular con interruptores intercambiables." },
+      { "id": 8, "nombre": "Silla DXRacer Formula Series FD01/N", "cantidad": 1, "precio": 369.99, "descripcion": "Silla gaming ergonómica con diseño deportivo y cómodo soporte lumbar." }
+    ]
+  },
+  {
+    "id": 13,
+    "nombre_usuario": "Janel",
+    "componentes_pc": [
+      { "id": 1, "nombre": "Procesador Intel Core i9-12900K", "cantidad": 1, "precio": 899.99, "descripcion": "Procesador de última generación con 16 núcleos y 24 subprocesos para un rendimiento extremo." },
+      { "id": 2, "nombre": "Tarjeta Gráfica NVIDIA GeForce RTX 4080 Ti", "cantidad": 1, "precio": 1999.99, "descripcion": "La tarjeta gráfica más potente con tecnología de trazado de rayos para gráficos asombrosos." },
+      { "id": 3, "nombre": "SSD Sabrent Rocket 4 Plus 4TB NVMe", "cantidad": 1, "precio": 899.99, "descripcion": "Unidad de estado sólido PCIe 4.0 con capacidades masivas de almacenamiento y velocidades ultrarrápidas." },
+      { "id": 4, "nombre": "Placa Base Gigabyte Z690 AORUS Xtreme", "cantidad": 1, "precio": 1299.99, "descripcion": "Placa base de alta gama con soporte para PCIe 5.0 y características avanzadas de overclocking." },
+      { "id": 5, "nombre": "Memoria RAM Corsair Vengeance RGB Pro 128GB", "cantidad": 4, "precio": 1199.99, "descripcion": "Módulos de memoria DDR4 con iluminación RGB y enorme capacidad para multitarea intensiva." },
+      { "id": 6, "nombre": "Monitor Alienware AW3420DW", "cantidad": 1, "precio": 1499.99, "descripcion": "Monitor curvo ultrawide de 34 pulgadas con resolución WQHD y tecnología IPS para colores vibrantes." },
+      { "id": 7, "nombre": "Teclado SteelSeries Apex Pro", "cantidad": 1, "precio": 199.99, "descripcion": "Teclado mecánico con interruptores ajustables para personalizar la sensación de las teclas." },
+      { "id": 8, "nombre": "Silla Herman Miller Embody", "cantidad": 1, "precio": 1499.99, "descripcion": "Silla ergonómica diseñada para apoyar la postura saludable durante largas sesiones de trabajo o juego." }
+    ]
+  },
+  {
+    "id": 14,
+    "nombre_usuario": "Burnaby",
+    "componentes_pc": [
+      { "id": 1, "nombre": "Procesador AMD Ryzen 9 5900X", "cantidad": 1, "precio": 649.99, "descripcion": "Procesador de 12 núcleos para un rendimiento excepcional en aplicaciones exigentes." },
+      { "id": 2, "nombre": "Tarjeta Gráfica ASUS ROG Strix RTX 3080 Ti", "cantidad": 1, "precio": 1399.99, "descripcion": "Potente tarjeta gráfica con 12 GB de memoria GDDR6X para juegos de alta gama." },
+      { "id": 3, "nombre": "SSD Crucial P5 Plus 2TB NVMe", "cantidad": 1, "precio": 379.99, "descripcion": "Unidad de estado sólido PCIe Gen4 para una velocidad de lectura/escritura excepcional." },
+      { "id": 4, "nombre": "Placa Base MSI MPG B550 Gaming Edge WiFi", "cantidad": 1, "precio": 199.99, "descripcion": "Placa base con conectividad WiFi 6 y PCIe 4.0 para un rendimiento avanzado." },
+      { "id": 5, "nombre": "Memoria RAM HyperX Fury RGB 64GB", "cantidad": 4, "precio": 599.99, "descripcion": "Módulos de memoria DDR4 con iluminación RGB para un estilo impactante." },
+      { "id": 6, "nombre": "Monitor Acer Predator X27", "cantidad": 1, "precio": 1999.99, "descripcion": "Monitor gaming 4K con tecnología G-Sync para una experiencia de juego suave." },
+      { "id": 7, "nombre": "Teclado Razer Huntsman Elite", "cantidad": 1, "precio": 199.99, "descripcion": "Teclado mecánico con interruptores ópticos y reposamuñecas magnético." },
+      { "id": 8, "nombre": "Silla Secretlab Omega Series", "cantidad": 1, "precio": 359.99, "descripcion": "Silla gaming con cuero PRIME™ 2.0 y soporte lumbar ajustable." }
+    ]
+  },
+  {
+    "id": 15,
+    "nombre_usuario": "Bernadine",
+    "componentes_pc": [
+      { "id": 1, "nombre": "Procesador Intel Core i9-10900K", "cantidad": 1, "precio": 589.99, "descripcion": "Procesador de 10 núcleos y 20 hilos para un rendimiento excepcional en multitarea." },
+      { "id": 2, "nombre": "Tarjeta Gráfica AMD Radeon RX 6800 XT", "cantidad": 1, "precio": 999.99, "descripcion": "Tarjeta gráfica para juegos de alta gama con 16 GB de memoria GDDR6." },
+      { "id": 3, "nombre": "SSD Kingston KC2500 1TB NVMe", "cantidad": 1, "precio": 229.99, "descripcion": "Unidad de estado sólido NVMe con velocidades de lectura de hasta 3,500 MB/s." },
+      { "id": 4, "nombre": "Placa Base Gigabyte Z490 AORUS Ultra", "cantidad": 1, "precio": 279.99, "descripcion": "Placa base con soporte para PCIe 3.0 y USB-C para conectividad moderna." },
+      { "id": 5, "nombre": "Memoria RAM Corsair Vengeance LPX 32GB", "cantidad": 2, "precio": 349.99, "descripcion": "Módulos de memoria DDR4 de baja altura para una compatibilidad máxima." },
+      { "id": 6, "nombre": "Monitor ASUS VG279Q", "cantidad": 1, "precio": 329.99, "descripcion": "Monitor IPS de 27 pulgadas con frecuencia de actualización de 144Hz para juegos suaves." },
+      { "id": 7, "nombre": "Teclado Logitech G Pro Mechanical Gaming Keyboard", "cantidad": 1, "precio": 149.99, "descripcion": "Teclado mecánico compacto y portátil para jugadores exigentes." },
+      { "id": 8, "nombre": "Silla Respawn 110 Racing Style Gaming Chair", "cantidad": 1, "precio": 189.99, "descripcion": "Silla gaming con respaldo reclinable y reposapiés extensible para comodidad total." }
+    ]
+  },
+  {
+    "id": 16,
+    "nombre_usuario": "Oberon",
+    "componentes_pc": [
+      { "id": 1, "nombre": "Procesador AMD Ryzen 7 5800X", "cantidad": 1, "precio": 449.99, "descripcion": "Procesador de 8 núcleos para un rendimiento potente en aplicaciones y juegos." },
+      { "id": 2, "nombre": "Tarjeta Gráfica NVIDIA GeForce RTX 3070", "cantidad": 1, "precio": 799.99, "descripcion": "Tarjeta gráfica de gama alta para juegos en resolución 1440p." },
+      { "id": 3, "nombre": "SSD Crucial MX500 1TB SATA", "cantidad": 1, "precio": 129.99, "descripcion": "Unidad de estado sólido SATA con velocidad de lectura/escritura rápida." },
+      { "id": 4, "nombre": "Placa Base ASRock B550 Phantom Gaming 4", "cantidad": 1, "precio": 129.99, "descripcion": "Placa base con soporte para PCIe 4.0 y diseño gaming." },
+      { "id": 5, "nombre": "Memoria RAM Corsair Vengeance LPX 16GB", "cantidad": 2, "precio": 179.99, "descripcion": "Módulos de memoria DDR4 de bajo perfil para una mayor compatibilidad." },
+      { "id": 6, "nombre": "Monitor AOC CQ32G1", "cantidad": 1, "precio": 329.99, "descripcion": "Monitor curvo de 32 pulgadas con resolución QHD para una experiencia inmersiva." },
+      { "id": 7, "nombre": "Teclado HyperX Alloy FPS Pro", "cantidad": 1, "precio": 69.99, "descripcion": "Teclado mecánico compacto diseñado para jugadores profesionales." },
+      { "id": 8, "nombre": "Silla Cougar Armor S Royal", "cantidad": 1, "precio": 299.99, "descripcion": "Silla gaming con diseño elegante y funcionalidades ergonómicas." }
+    ]
+  },
+  {
+    "id": 17,
+    "nombre_usuario": "Abramo",
+    "componentes_pc": [
+      { "id": 1, "nombre": "Procesador Intel Core i7-12700K", "cantidad": 1, "precio": 479.99, "descripcion": "Procesador de 12 núcleos y 20 hilos para un rendimiento excepcional en tareas pesadas." },
+      { "id": 2, "nombre": "Tarjeta Gráfica AMD Radeon RX 6700 XT", "cantidad": 1, "precio": 599.99, "descripcion": "Tarjeta gráfica para juegos en resolución 1440p con 12 GB de memoria GDDR6." },
+      { "id": 3, "nombre": "SSD Western Digital Black SN750 500GB NVMe", "cantidad": 1, "precio": 99.99, "descripcion": "Unidad de estado sólido NVMe con velocidad de lectura de hasta 3,470 MB/s." },
+      { "id": 4, "nombre": "Placa Base ASUS TUF Gaming B660-PLUS", "cantidad": 1, "precio": 169.99, "descripcion": "Placa base resistente y confiable para juegos intensivos." },
+      { "id": 5, "nombre": "Memoria RAM G.Skill Ripjaws V 32GB", "cantidad": 2, "precio": 229.99, "descripcion": "Módulos de memoria DDR4 con rendimiento optimizado para multitarea." },
+      { "id": 6, "nombre": "Monitor MSI Optix MAG274QRF-QD", "cantidad": 1, "precio": 499.99, "descripcion": "Monitor IPS de 27 pulgadas con resolución 1440p y frecuencia de actualización de 165Hz." },
+      { "id": 7, "nombre": "Teclado Razer BlackWidow Elite", "cantidad": 1, "precio": 129.99, "descripcion": "Teclado mecánico con interruptores Razer y retroiluminación RGB personalizable." },
+      { "id": 8, "nombre": "Silla AKRacing Masters Series Pro", "cantidad": 1, "precio": 349.99, "descripcion": "Silla gaming con respaldo reclinable y apoyabrazos ajustables." }
+    ]
+  },
+  {
+    "id": 18,
+    "nombre_usuario": "Laurel",
+    "componentes_pc": [
+      { "id": 1, "nombre": "Procesador AMD Ryzen 5 5600X", "cantidad": 1, "precio": 299.99, "descripcion": "Procesador de 6 núcleos y 12 hilos para un rendimiento sólido en juegos y multitarea." },
+      { "id": 2, "nombre": "Tarjeta Gráfica NVIDIA GeForce GTX 1660 Super", "cantidad": 1, "precio": 249.99, "descripcion": "Tarjeta gráfica para juegos en 1080p con 6 GB de memoria GDDR5." },
+      { "id": 3, "nombre": "SSD Samsung 970 EVO Plus 1TB NVMe", "cantidad": 1, "precio": 179.99, "descripcion": "Unidad de estado sólido NVMe con velocidades de lectura de hasta 3,500 MB/s." },
+      { "id": 4, "nombre": "Placa Base ASRock B450M Steel Legend", "cantidad": 1, "precio": 109.99, "descripcion": "Placa base Micro ATX con soporte para Ryzen 3000 y USB 3.1 Gen2." },
+      { "id": 5, "nombre": "Memoria RAM Corsair Vengeance LPX 16GB", "cantidad": 2, "precio": 109.99, "descripcion": "Módulos de memoria DDR4 de bajo perfil para un rendimiento eficiente." },
+      { "id": 6, "nombre": "Monitor Dell S2419HGF", "cantidad": 1, "precio": 189.99, "descripcion": "Monitor TN de 24 pulgadas con frecuencia de actualización de 144Hz para juegos fluidos." },
+      { "id": 7, "nombre": "Teclado HyperX Alloy FPS", "cantidad": 1, "precio": 79.99, "descripcion": "Teclado mecánico compacto y duradero para jugadores enfocados en el rendimiento." },
+      { "id": 8, "nombre": "Silla Homall Gaming Chair", "cantidad": 1, "precio": 129.99, "descripcion": "Silla gaming ergonómica con soporte lumbar y reposapiés retráctil." }
+    ]
+  },
+  {
+    "id": 19,
+    "nombre_usuario": "Elva",
+    "componentes_pc": [
+      { "id": 1, "nombre": "Procesador Intel Core i5-11600K", "cantidad": 1, "precio": 269.99, "descripcion": "Procesador de 6 núcleos y 12 hilos para un rendimiento sólido en aplicaciones y juegos." },
+      { "id": 2, "nombre": "Tarjeta Gráfica AMD Radeon RX 5700 XT", "cantidad": 1, "precio": 379.99, "descripcion": "Tarjeta gráfica para juegos en resolución 1440p con 8 GB de memoria GDDR6." },
+      { "id": 3, "nombre": "SSD Kingston A2000 500GB NVMe", "cantidad": 1, "precio": 89.99, "descripcion": "Unidad de estado sólido NVMe con velocidades de lectura de hasta 2,200 MB/s." },
+      { "id": 4, "nombre": "Placa Base ASUS Prime Z590-A", "cantidad": 1, "precio": 229.99, "descripcion": "Placa base ATX con soporte para PCIe 4.0 y conectividad USB-C." },
+      { "id": 5, "nombre": "Memoria RAM G.Skill Trident Z RGB 32GB", "cantidad": 2, "precio": 199.99, "descripcion": "Módulos de memoria DDR4 con iluminación RGB para un estilo personalizado." },
+      { "id": 6, "nombre": "Monitor LG 27GL83A-B", "cantidad": 1, "precio": 379.99, "descripcion": "Monitor IPS de 27 pulgadas con resolución QHD y frecuencia de actualización de 144Hz." },
+      { "id": 7, "nombre": "Teclado Corsair K70 RGB MK.2", "cantidad": 1, "precio": 159.99, "descripcion": "Teclado mecánico con retroiluminación RGB y switches Cherry MX." },
+      { "id": 8, "nombre": "Silla RESPAWN 110 Racing Style Gaming Chair", "cantidad": 1, "precio": 189.99, "descripcion": "Silla gaming con respaldo reclinable y soporte lumbar ajustable." }
+    ]
+  },
+  {
+    "id": 20,
+    "nombre_usuario": "Derrek",
+    "componentes_pc": [
+      { "id": 1, "nombre": "Procesador AMD Ryzen 7 3700X", "cantidad": 1, "precio": 329.99, "descripcion": "Procesador de 8 núcleos y 16 hilos para un rendimiento sólido en multitarea." },
+      { "id": 2, "nombre": "Tarjeta Gráfica NVIDIA GeForce GTX 1660 Ti", "cantidad": 1, "precio": 279.99, "descripcion": "Tarjeta gráfica para juegos en 1080p con 6 GB de memoria GDDR6." },
+      { "id": 3, "nombre": "SSD Crucial MX500 500GB SATA", "cantidad": 1, "precio": 69.99, "descripcion": "Unidad de estado sólido SATA con velocidad de lectura/escritura rápida." },
+      { "id": 4, "nombre": "Placa Base MSI B450 TOMAHAWK MAX", "cantidad": 1, "precio": 114.99, "descripcion": "Placa base ATX con soporte para Ryzen 3000 y USB 3.2 Gen2." },
+      { "id": 5, "nombre": "Memoria RAM Corsair Vengeance LPX 16GB", "cantidad": 2, "precio": 109.99, "descripcion": "Módulos de memoria DDR4 de bajo perfil para un rendimiento eficiente." },
+      { "id": 6, "nombre": "Monitor ASUS VG245H", "cantidad": 1, "precio": 189.99, "descripcion": "Monitor gaming de 24 pulgadas con frecuencia de actualización de 75Hz." },
+      { "id": 7, "nombre": "Teclado Logitech G Pro X Mechanical Gaming Keyboard", "cantidad": 1, "precio": 149.99, "descripcion": "Teclado mecánico modular con interruptores intercambiables." },
+      { "id": 8, "nombre": "Silla Homall Gaming Chair", "cantidad": 1, "precio": 129.99, "descripcion": "Silla gaming ergonómica con soporte lumbar y reposapiés retráctil." }
+    ]
+  },
+  {
+    "id": 21,
+    "nombre_usuario": "Adrianna",
+    "componentes_pc": [
+      { "id": 1, "nombre": "Procesador Intel Core i7-11700K", "cantidad": 1, "precio": 419.99, "descripcion": "Procesador de 8 núcleos y 16 hilos para un rendimiento excepcional en tareas intensivas." },
+      { "id": 2, "nombre": "Tarjeta Gráfica NVIDIA GeForce RTX 3060 Ti", "cantidad": 1, "precio": 499.99, "descripcion": "Tarjeta gráfica para juegos de alta calidad con 8 GB de memoria GDDR6." },
+      { "id": 3, "nombre": "SSD Samsung 970 EVO 1TB NVMe", "cantidad": 1, "precio": 149.99, "descripcion": "Unidad de estado sólido NVMe con velocidades de lectura de hasta 3,500 MB/s." },
+      { "id": 4, "nombre": "Placa Base MSI MPG B550 GAMING PLUS", "cantidad": 1, "precio": 149.99, "descripcion": "Placa base ATX con soporte para PCIe 4.0 y Mystic Light RGB." },
+      { "id": 5, "nombre": "Memoria RAM HyperX Fury 32GB", "cantidad": 2, "precio": 189.99, "descripcion": "Módulos de memoria DDR4 con disipadores de calor para un rendimiento fresco." },
+      { "id": 6, "nombre": "Monitor Acer Predator XB271HU", "cantidad": 1, "precio": 599.99, "descripcion": "Monitor IPS de 27 pulgadas con resolución WQHD y frecuencia de actualización de 165Hz." },
+      { "id": 7, "nombre": "Teclado SteelSeries Apex Pro", "cantidad": 1, "precio": 199.99, "descripcion": "Teclado mecánico con interruptores ajustables y retroiluminación RGB." },
+      { "id": 8, "nombre": "Silla Secretlab Omega Series", "cantidad": 1, "precio": 349.99, "descripcion": "Silla gaming con diseño ergonómico y cuero PU de alta calidad." }
+    ]
+  },
+  {
+    "id": 22,
+    "nombre_usuario": "Teodoor",
+    "componentes_pc": [
+      { "id": 1, "nombre": "Procesador AMD Ryzen 9 5900X", "cantidad": 1, "precio": 549.99, "descripcion": "Procesador de 12 núcleos y 24 hilos para un rendimiento excepcional en aplicaciones y juegos." },
+      { "id": 2, "nombre": "Tarjeta Gráfica ASUS ROG Strix RTX 3080", "cantidad": 1, "precio": 1199.99, "descripcion": "Tarjeta gráfica de alta gama con 10 GB de memoria GDDR6X y diseño avanzado de enfriamiento." },
+      { "id": 3, "nombre": "SSD WD Black SN850 2TB NVMe", "cantidad": 1, "precio": 499.99, "descripcion": "Unidad de estado sólido NVMe con capacidades de almacenamiento masivo y velocidades extremas." },
+      { "id": 4, "nombre": "Placa Base Gigabyte X570 AORUS MASTER", "cantidad": 1, "precio": 389.99, "descripcion": "Placa base ATX con soporte para PCIe 4.0, RGB Fusion 2.0 y solución de energía avanzada." },
+      { "id": 5, "nombre": "Memoria RAM Corsair Dominator Platinum RGB 64GB", "cantidad": 2, "precio": 549.99, "descripcion": "Módulos de memoria DDR4 con iluminación RGB personalizable y rendimiento extremo." },
+      { "id": 6, "nombre": "Monitor Alienware AW3420DW", "cantidad": 1, "precio": 1199.99, "descripcion": "Monitor curvo ultrawide de 34 pulgadas con resolución WQHD y tecnología Nano Color." },
+      { "id": 7, "nombre": "Teclado Razer Huntsman Elite", "cantidad": 1, "precio": 199.99, "descripcion": "Teclado mecánico con switches opto-mecánicos, reposamuñecas magnético y retroiluminación RGB." },
+      { "id": 8, "nombre": "Silla Noblechairs Hero Series", "cantidad": 1, "precio": 439.99, "descripcion": "Silla gaming ergonómica con soporte lumbar y reposapiés integrado." }
+    ]
+  },
+  {
+    "id": 23,
+    "nombre_usuario": "Wyn",
+    "componentes_pc": [
+      { "id": 1, "nombre": "Procesador Intel Core i9-12900K", "cantidad": 1, "precio": 699.99, "descripcion": "Procesador de 16 núcleos y 24 hilos para un rendimiento excepcional en tareas intensivas." },
+      { "id": 2, "nombre": "Tarjeta Gráfica AMD Radeon RX 6900 XT", "cantidad": 1, "precio": 1099.99, "descripcion": "Tarjeta gráfica de alta gama con 16 GB de memoria GDDR6 y tecnología RDNA2." },
+      { "id": 3, "nombre": "SSD Sabrent Rocket Q 4TB NVMe", "cantidad": 1, "precio": 999.99, "descripcion": "Unidad de estado sólido NVMe de gran capacidad con velocidades de lectura de hasta 4,950 MB/s." },
+      { "id": 4, "nombre": "Placa Base MSI MEG Z690 GODLIKE", "cantidad": 1, "precio": 899.99, "descripcion": "Placa base E-ATX con soporte para PCIe 5.0, Mystic Light Infinity y LAN 10GbE." },
+      { "id": 5, "nombre": "Memoria RAM G.Skill Trident Z Royal 128GB", "cantidad": 2, "precio": 1499.99, "descripcion": "Módulos de memoria DDR4 con diseño extravagante, iluminación RGB y enorme capacidad." },
+      { "id": 6, "nombre": "Monitor LG OLED48C1", "cantidad": 1, "precio": 1499.99, "descripcion": "Televisor OLED de 48 pulgadas con resolución 4K, HDR, y tasas de refresco elevadas." },
+      { "id": 7, "nombre": "Teclado Logitech G Pro X Mechanical Gaming Keyboard", "cantidad": 1, "precio": 149.99, "descripcion": "Teclado mecánico modular con interruptores intercambiables." },
+      { "id": 8, "nombre": "Silla Herman Miller Aeron", "cantidad": 1, "precio": 1495.00, "descripcion": "Silla ergonómica con diseño icónico y ajustes personalizables para una comodidad excepcional." }
+    ]
+  },
+  {
+    "id": 24,
+    "nombre_usuario": "Rosella",
+    "componentes_pc": [
+      { "id": 1, "nombre": "Procesador AMD Ryzen Threadripper 3970X", "cantidad": 1, "precio": 1999.99, "descripcion": "Procesador de 32 núcleos y 64 hilos para cargas de trabajo intensivas y renderización." },
+      { "id": 2, "nombre": "Tarjeta Gráfica NVIDIA Quadro RTX 6000", "cantidad": 1, "precio": 3999.99, "descripcion": "Tarjeta gráfica profesional con 24 GB de memoria GDDR6 y soporte para aplicaciones de diseño y simulación." },
+      { "id": 3, "nombre": "SSD Samsung 980 PRO 2TB NVMe", "cantidad": 1, "precio": 399.99, "descripcion": "Unidad de estado sólido NVMe de alta velocidad con capacidades de almacenamiento masivo." },
+      { "id": 4, "nombre": "Placa Base ASUS ROG Zenith II Extreme Alpha", "cantidad": 1, "precio": 899.99, "descripcion": "Placa base E-ATX con chipset TRX40, soporte PCIe 4.0 y solución de alimentación robusta." },
+      { "id": 5, "nombre": "Memoria RAM Corsair Dominator Platinum RGB 256GB", "cantidad": 2, "precio": 2499.99, "descripcion": "Módulos de memoria DDR4 con iluminación RGB, capacidades extremas y velocidad de hasta 3,600 MHz." },
+      { "id": 6, "nombre": "Monitor ASUS ProArt PA32UCX-K", "cantidad": 1, "precio": 3499.99, "descripcion": "Monitor profesional 4K HDR con calibración de color avanzada y tecnología Mini LED." },
+      { "id": 7, "nombre": "Teclado Das Keyboard 4 Professional", "cantidad": 1, "precio": 169.99, "descripcion": "Teclado mecánico con interruptores Cherry MX, teclas multimedia y construcción de aluminio." },
+      { "id": 8, "nombre": "Silla Steelcase Gesture", "cantidad": 1, "precio": 1032.00, "descripcion": "Silla ergonómica con soporte dinámico que se ajusta a la postura y movimientos del usuario." }
+    ]
+  },
+  {
+    "id": 25,
+    "nombre_usuario": "Marchelle",
+    "componentes_pc": [
+      { "id": 1, "nombre": "Procesador Intel Xeon W-3175X", "cantidad": 1, "precio": 2999.99, "descripcion": "Procesador de 28 núcleos y 56 hilos diseñado para estaciones de trabajo profesionales." },
+      { "id": 2, "nombre": "Tarjeta Gráfica AMD Radeon Pro VII", "cantidad": 1, "precio": 1899.99, "descripcion": "Tarjeta gráfica profesional con 16 GB de memoria HBM2 para cargas de trabajo intensivas." },
+      { "id": 3, "nombre": "SSD Crucial P5 Plus 4TB NVMe", "cantidad": 1, "precio": 649.99, "descripcion": "Unidad de estado sólido NVMe de alta capacidad con velocidades de lectura de hasta 6,600 MB/s." },
+      { "id": 4, "nombre": "Placa Base ASUS ROG Dominus Extreme", "cantidad": 1, "precio": 1799.99, "descripcion": "Placa base E-ATX diseñada para procesadores Xeon W-3175X con soporte para hasta 1.5TB de RAM." },
+      { "id": 5, "nombre": "Memoria RAM Kingston HyperX Fury 128GB", "cantidad": 2, "precio": 899.99, "descripcion": "Módulos de memoria DDR4 de alta capacidad para un rendimiento sin concesiones en aplicaciones profesionales." },
+      { "id": 6, "nombre": "Monitor Dell UltraSharp UP3221Q", "cantidad": 1, "precio": 4999.99, "descripcion": "Monitor 4K HDR PremierColor de 32 pulgadas con calibración de color avanzada y conectividad Thunderbolt 3." },
+      { "id": 7, "nombre": "Teclado HP ZBook Firefly G7", "cantidad": 1, "precio": 199.99, "descripcion": "Teclado profesional con retroiluminación y resistente a salpicaduras para usuarios empresariales." },
+      { "id": 8, "nombre": "Silla Herman Miller Embody", "cantidad": 1, "precio": 1495.00, "descripcion": "Silla ergonómica diseñada para mejorar la postura y reducir la fatiga durante largas sesiones de trabajo." }
+    ]
+  }
 ]
