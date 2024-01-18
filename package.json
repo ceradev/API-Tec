@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "API para tienda de informatica en Node.js. Gestiona productos, inventario, clientes y pedidos.",
   "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node index.js",
+    "start": "node index.js"
+  },
   "repository": {
     "type": "git",
     "url": "express.js"
@@ -10,7 +15,13 @@
   "author": "César A. Suárez Orizondo",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2"
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/container-queries": "^0.1.1",
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/typography": "^0.5.10",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
     "tailwindcss": "^3.4.1"
