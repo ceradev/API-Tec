@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./css/output.css">
+  <title>API Tec - Lista de usuarios</title>
+</head>
+
+<body>
+  <nav class="flex items-center justify-between flex-wrap bg-teal-500 p-6">
+    <div class="flex items-center flex-shrink-0 text-white mr-6">
+      <span class="font-semibold text-xl tracking-tight">API Tec</span>
+    </div>
+    <div class="block lg:hidden">
+      <button
+        class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
+        <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <title>Menu</title>
+          <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+        </svg>
+      </button>
+    </div>
+    <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+      <div class="text-sm lg:flex-grow">
+        <a href="http://localhost:3000" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+          Home
+        </a>
+        <a href="http://localhost:3000/users.html"
+          class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+          Users
+        </a>
+      </div>
+    </div>
+  </nav>
+  <div class="flex items-center justify-center min-h-screen mt-8">
+    <div class="relative overflow-auto shadow-md sm:rounded-lg max-w-screen-md w-full mb-16">
+      <table class="w-full text-sm text-left rtl:text-right bg-white dark:bg-gray-800 table-auto min-w-full">
+        <thead class="text-xs text-white uppercase bg-teal-500 bg-white dark:text-gray-400">
+          <tr>
+            <th scope="col" class="px-6 py-3 text-left min-w-max cursor-pointer">
+              ID
+            </th>
+            <th scope="col" class="px-6 py-3 text-left min-w-max cursor-pointer">
+              Username
+            </th>
+            <th scope="col" class="px-6 py-3 text-left min-w-max cursor-pointer">
+              Address
+            </th>
+            <th scope="col" class="px-6 py-3 text-left min-w-max cursor-pointer">
+              Number Phone
+            </th>
+            <th scope="col" class="px-6 py-3 text-left min-w-max cursor-pointer">
+              Email
+            </th>
+            <th scope="col" class="px-6 py-3 text-left min-w-max cursor-pointer">
+              <span class="sr-only">Actions</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+</div>
+  <script src="js/users.js"></script>
+</body>
+
+</html>
