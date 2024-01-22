@@ -2,39 +2,43 @@ const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
 const app = express();
+const path = require('path');
 
 const PARAMETERS =["name", "address", "tel", "email", "perfil_id"];
 const PORT = process.env.PORT || 3000;
 const USERS = require('./users.json');
-<<<<<<< HEAD
-const list_users = USERS.length;
-=======
->>>>>>> 13fab3748a2d72a49e5b0dd0124d3998a1029f67
+const COMPONENTS = require('./components.json');
 
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(cors());
 app.use(express.static(__dirname + '/public'));
 
+// Establecer el motor de plantillas Pug
+app.set('view engine', 'pug');
+app.set('views', path.join(__dirname, 'views'));
+
+// Archivo estático para los estilos
+app.use('/css', express.static(path.join(__dirname, 'public', 'css')));
+
 app.get('/', (req,res)=>{
-    res.sendFile(__dirname + '/public/index.html');
+    res.render('index');
 });
 
 app.get('/list', (req,res)=>{
-    res.sendFile(__dirname + '/public/users.html');
+    res.render('users');
+})
+
+app.get('/components', (req,res)=>{
+    res.render('components');
 })
 
 app.get('/api/users', (req,res)=>{
     const queries = req.query;
     const keys = Object.keys(queries);
-<<<<<<< HEAD
     console.log('Query Parameters:', queries);  // Agrega este registro para verificar los parámetros del query
     const error_code = 0;  // No hay error.
-=======
-    console.log('Query Parameters:', queries);
-    const error_code = 0;
->>>>>>> 13fab3748a2d72a49e5b0dd0124d3998a1029f67
-    const error_message="";
+    console.log('Query Parameters:', queries);    const error_message="";
     const wrong_keys = [];
     keys.forEach(key=>{
         if (!PARAMETERS.includes(key)) wrong_keys.push(key);
@@ -43,11 +47,7 @@ app.get('/api/users', (req,res)=>{
     if (wrong_keys.length) {
         error_message +=  "Los siguientes campos de consulta no son correctos: "+ wrong_keys
     } 
-<<<<<<< HEAD
     
-=======
-
->>>>>>> 13fab3748a2d72a49e5b0dd0124d3998a1029f67
     if (error_message) {
         error_code=400
         res.status(400).json({
@@ -106,31 +106,18 @@ app.get('/api/users', (req,res)=>{
 
 app.get('/api/users/:id', (req,res)=>{
     let id = req.params.id;
-<<<<<<< HEAD
-    let filtro = CLIENTES.filter(cliente=>cliente.id==id);
-    if (filtro.length>0) {
-        res.json({
-            success: true,
-            message: "Cliente enconctrado con id: "+id,
-            data: filtro[0]
-=======
-    let filter = USERS.filter(user=>user.id==id);
+    const filter = COMPONENTS.filter(user=>user.id==id);
     if (filter.length>0) {
         res.json({
             success: true,
-            message: "Se ha encontrado el usuario con id : "+id,
+            message: "Se ha encontrado los componentes del usuario con id : "+ id,
             data: filter[0]
->>>>>>> 13fab3748a2d72a49e5b0dd0124d3998a1029f67
         });
     } else {
         res.status(404).json({
             success: false,
             error_code: 4321,
-<<<<<<< HEAD
-            message: "No se encuentra ningún cliente con el id: "+id
-=======
-            message: "No se encuentra ningún usuario con el id: "+id
->>>>>>> 13fab3748a2d72a49e5b0dd0124d3998a1029f67
+            message: "No se encuentran componentes del usuario con el id: "+ id
         });
     }
 });
@@ -201,19 +188,6 @@ app.listen(PORT, ()=>{
     console.log("El servidor está escuchando en el puerto "+PORT);
 });
 
-function esBoolean(b) {
-    return (b=="true" || b=="false");
-    return false;
-}
-
-<<<<<<< HEAD
-function esFechaValida(f) {
-    let fecha = Date.parse(f);
-    return !isNaN(fecha);
-}
-
-=======
->>>>>>> 13fab3748a2d72a49e5b0dd0124d3998a1029f67
 function MergeRecursive(obj1, obj2) {
     for (let p in obj2) {
       try {
