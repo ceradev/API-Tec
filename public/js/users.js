@@ -40,7 +40,7 @@ async function deleteComponent() {
 
 async function loadComponents() {
 
-    const response = await fetch(HOST + 'users');
+    const response = await fetch(HOST + 'users/:');
     const json = await response.json();
     const users = json.data.users;
 }
