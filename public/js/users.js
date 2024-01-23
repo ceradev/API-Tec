@@ -16,11 +16,11 @@ async function loadUser(user) {
     let tr = document.createElement('tr');
     tr.className = 'bg-teal-500 border-b bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600';
     tr.innerHTML = `
-            <th scope="row" class="px-6 py-4 font-medium text-white whitespace-nowrap dark:text-white">${user.id}</th>
-            <td class="px-6 py-4 text-teal-200 dark:text-gray-300">${user.name}</td>
-            <td class="px-6 py-4 text-teal-200 dark:text-gray-300">${user.address}</td>
-            <td class="px-6 py-4 text-teal-200 dark:text-gray-300">${user.tel}</td>
-            <td class="px-6 py-4 text-teal-200 dark:text-gray-300">${user.email}</td>
+            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">${user.id}</th>
+            <td class="px-6 py-4 text-gray-500 dark:text-white">${user.name}</td>
+            <td class="px-6 py-4 text-teal-200 dark:text-white">${user.address}</td>
+            <td class="px-6 py-4 text-teal-200 dark:text-white">${user.tel}</td>
+            <td class="px-6 py-4 text-teal-200 dark:text-white">${user.email}</td>
             <td class="flex px-6 py-4 text-right"><a href="localhost:3000/" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">View</a></td>
         `;
     tbody.append(tr);

@@ -25,13 +25,15 @@ app.get('/', (req,res)=>{
     res.render('index');
 });
 
-app.get('/list', (req,res)=>{
-    res.render('users');
+app.get('/login', (req,res)=>{
+    res.render('login');
 })
 
-app.get('/components', (req,res)=>{
-    res.render('components');
+app.get('/register', (req,res) => {
+    res.render('register');
 })
+
+
 
 app.get('/api/users', (req,res)=>{
     const queries = req.query;
