@@ -108,6 +108,32 @@ app.get('/api/users', (req,res)=>{
 
 app.get('/api/users/:id', (req,res)=>{
     let id = req.params.id;
+    const filter = USERS.filter(user=>user.id==id);
+    if (filter.length>0) {
+        res.json({
+            success: true,
+            message: "Se ha encontrado al usuario con id : "+ id,
+            data: filter[0]
+        });
+    } else {
+        res.status(404).json({
+            success: false,
+            error_code: 4321,
+            message: "No se encuentran el usuario con el id: "+ id
+        });
+    }
+});
+
+app.get('/api/components', (req,res)=>{
+    res.json({
+        success: true,
+        message: "List of components",
+        data: COMPONENTS
+    });
+    })
+
+app.get('/api/components/:id', (req,res)=>{
+    let id = req.params.id;
     const filter = COMPONENTS.filter(user=>user.id==id);
     if (filter.length>0) {
         res.json({
@@ -119,28 +145,28 @@ app.get('/api/users/:id', (req,res)=>{
         res.status(404).json({
             success: false,
             error_code: 4321,
-            message: "No se encuentran componentes del usuario con el id: "+ id
+            message: "No se encuentran los componentes del usuario con el id: "+ id
         });
     }
 });
 
 app.post('/api/users', (req,res)=>{
-    let nuevoCliente = req.body;
+    let newUser = req.body;
     // Compruebo si están los datos obligatorios
-    if (nuevoCliente.nombre && nuevoCliente.apellidos && nuevoCliente.direccion.localidad) {
+    if (newUser.nombre && newUser.apellidos && newUser.email && newUser.password && newUser.tel) {
         nuevoCliente.id=++idNuevo;
         CLIENTES.push(nuevoCliente);
         res.status(201).json({
             success: true,
-            message: "Cliente creado con éxito",
-            data: nuevoCliente
+            message: "Usuario registrado con éxito",
+            data: newUser
         });
     } else {
         res.status(422).json({
             success: false,
             error_code: 5555,
-            message: "Falta algún dato.",
-            data: nuevoCliente
+            message: "Los datos obligatorios son: nombre, apellidos, email, password, tel",
+            data: newUser
         });
     }
 });
