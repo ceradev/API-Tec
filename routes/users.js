@@ -97,9 +97,10 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
     let newUser = req.body;
     // Compruebo si están los datos obligatorios
-    if (newUser.nombre && newUser.apellidos && newUser.email && newUser.password && newUser.tel) {
-        nuevoCliente.id=++idNuevo;
-        CLIENTES.push(nuevoCliente);
+    if (newUser.username && newUser.address && newUser.email && newUser.password && newUser.tel) {
+        newUser.id = USERS.length + 1;
+        newUser.perfil_id = USERS.length + 1;
+        USERS.push(newUser);
         res.status(201).json({
             success: true,
             message: "Usuario registrado con éxito",

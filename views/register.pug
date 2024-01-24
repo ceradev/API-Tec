@@ -5,18 +5,20 @@ block content
     form.w-full.max-w-md
       .mb-4
         label.block.text-gray-700.text-sm.font-bold.mb-2(for='username') Username
-        input.appearance-none.border.border-gray-200.rounded.w-full.py-2.px-3.text-gray-700.leading-tight.focus.outline-none.focus.border-teal-500(type='text', placeholder='Username', id='username')
+        input.appearance-none.border.border-gray-200.rounded.w-full.py-2.px-3.text-gray-700.leading-tight.focus.outline-none.focus.border-teal-500(type='text' placeholder='Username' id='username')
       .mb-4
         label.block.text-gray-700.text-sm.font-bold.mb-2(for='email') Email
-        input.appearance-none.border.border-gray-200.rounded.w-full.py-2.px-3.text-gray-700.leading-tight.focus.outline-none.focus.border-teal-500(type='email', placeholder='Email', id='email')
+        input.appearance-none.border.border-gray-200.rounded.w-full.py-2.px-3.text-gray-700.leading-tight.focus.outline-none.focus.border-teal-500(type='email' placeholder='Email' id='email')
       .mb-4
         label.block.text-gray-700.text-sm.font-bold.mb-2(for='password') Password
-        input.appearance-none.border.border-gray-200.rounded.w-full.py-2.px-3.text-gray-700.leading-tight.focus.outline-none.focus.border-teal-500(type='password', placeholder='Password', id='password')
+        input.appearance-none.border.border-gray-200.rounded.w-full.py-2.px-3.text-gray-700.leading-tight.focus.outline-none.focus.border-teal-500(type='password' placeholder='Password' id='password')
       .mb-4
         label.block.text-gray-700.text-sm.font-bold.mb-2(for='address') Address
-        input.appearance-none.border.border-gray-200.rounded.w-full.py-2.px-3.text-gray-700.leading-tight.focus.outline-none.focus.border-teal-500(type='text', placeholder='Address', id='address')
+        input.appearance-none.border.border-gray-200.rounded.w-full.py-2.px-3.text-gray-700.leading-tight.focus.outline-none.focus.border-teal-500(type='text' placeholder='Address' id='address')
       .mb-4
         label.block.text-gray-700.text-sm.font-bold.mb-2(for='phone') Phone Number
-        input.appearance-none.border.border-gray-200.rounded.w-full.py-2.px-3.text-gray-700.leading-tight.focus.outline-none.focus.border-teal-500(type='tel', placeholder='Phone Number', id='phone')
+        input.appearance-none.border.border-gray-200.rounded.w-full.py-2.px-3.text-gray-700.leading-tight.focus.outline-none.focus.border-teal-500(type='tel' placeholder='Phone Number' id='phone')
       .mb-6
-        button.bg-teal-500.hover.bg-teal-700.text-white.font-bold.py-2.px-4.rounded-full(type='submit') Register
+        button.bg-teal-500.hover.bg-teal-700.text-white.font-bold.py-2.px-4.rounded-full(onclick='registrateUser(event)') Register
+
+      script(src="/js/logic.js")
