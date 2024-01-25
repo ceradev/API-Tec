@@ -10,86 +10,95 @@ router.get('/', (req, res) => {
     const keys = Object.keys(queries);
     console.log('Query Parameters:', queries);  // Agrega este registro para verificar los parámetros del query
     const error_code = 0;  // No hay error.
-    console.log('Query Parameters:', queries);    const error_message="";
+    console.log('Query Parameters:', queries); const error_message = "";
     const wrong_keys = [];
-    keys.forEach(key=>{
+    keys.forEach(key => {
         if (!PARAMETERS.includes(key)) wrong_keys.push(key);
     });
 
     if (wrong_keys.length) {
-        error_message +=  "Los siguientes campos de consulta no son correctos: "+ wrong_keys
-    } 
-    
+        error_message += "Los siguientes campos de consulta no son correctos: " + wrong_keys
+    }
+
     if (error_message) {
-        error_code=400
+        error_code = 400
         res.status(400).json({
             success: false,
             error_code: error_code,
             message: error_message
         });
     } else {
-        const filter_users = USERS.filter(user=>{
+        const filter_users = USERS.filter(user => {
 
-            if (queries.name && user.name) {
+            if (queries.username && user.username) {
                 if (!user.name.toLowerCase().includes(queries.name.toLowerCase())) return false;
             }
             if (user.address) {
                 if (queries.address && user.address) {
-                    if (user.address.toLowerCase()!=queries.address.toLowerCase()) return false;
+                    if (user.address.toLowerCase() != queries.address.toLowerCase()) return false;
                 }
             }
             if (user.tel) {
                 if (queries.tel && user.tel) {
-                    if (user.tel.toLowerCase()!=queries.tel.toLowerCase()) return false;
+                    if (user.tel.toLowerCase() != queries.tel.toLowerCase()) return false;
                 }
             }
             if (user.email) {
                 if (queries.email && user.email) {
-                    if (user.email.toLowerCase()!=queries.email.toLowerCase()) return false;
+                    if (user.email.toLowerCase() != queries.email.toLowerCase()) return false;
                 }
             }
+
+            if (user.password) {
+                if (queries.password && user.password) {
+                    if (user.password != queries.password) return false;
+                }
+            }
+
             if (user.perfil_id) {
                 if (queries.perfil_id && user.perfil_id) {
-                    if (user.perfil_id!=queries.perfil_id) return false;
+                    if (user.perfil_id != queries.perfil_id) return false;
                 }
             }
             return true;
         });
-        const user_properties = filter_users.map(user=>{
+        const user_properties = filter_users.map(user => {
             return {
                 id: user.id,
-                name: user.name,
+                username: user.username,
                 address: user.address,
                 tel: user.tel,
                 email: user.email,
+                password: user.password,
                 perfil_id: user.perfil_id
             }
         })
-        res.json({
+
+        res.status(200).json({
             success: true,
             message: "List of users",
             data: {
                 count: user_properties.length,
                 users: user_properties
             }
-        }); 
-    }       
+        });
+    }
 });
 
 router.get('/:id', (req, res) => {
     const id = req.params.id;
-    const filter = USERS.filter(user=>user.id==id);
-    if (filter.length>0) {
+    const filter = USERS.filter(user => user.id == id);
+    if (filter.length > 0) {
         res.json({
             success: true,
-            message: "Se ha encontrado al usuario con id : "+ id,
+            message: "Se ha encontrado al usuario con id : " + id,
             data: filter[0]
         });
     } else {
         res.status(404).json({
             success: false,
             error_code: 4321,
-            message: "No se encuentran el usuario con el id: "+ id
+            message: "No se encuentran el usuario con el id: " + id
         });
     }
 });
@@ -118,17 +127,17 @@ router.post('/', (req, res) => {
 
 router.put('/:id', (req, res) => {
     let id = req.params.id;
-    let filtro = CLIENTES.filter(cliente=>cliente.id==id);
-    if (filtro.length==0) {
+    let filtro = CLIENTES.filter(cliente => cliente.id == id);
+    if (filtro.length == 0) {
         res.status(404).json({
             success: false,
             error_code: 4322,
-            message: "No se encuentra el cliente que se quiere modificar con el id: "+id
+            message: "No se encuentra el cliente que se quiere modificar con el id: " + id
         });
     } else {
         let nuevosDatos = req.body;
         let viejosDatos = filtro[0];
-        MergeRecursive(viejosDatos,nuevosDatos);
+        MergeRecursive(viejosDatos, nuevosDatos);
         res.json({
             success: true,
             message: "Cliente modificado con éxito",
@@ -139,16 +148,16 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
     let id = req.params.id;
-    let indice = CLIENTES.findIndex((cliente)=>cliente.id==id);
+    let indice = CLIENTES.findIndex((cliente) => cliente.id == id);
     console.log(indice);
-    if (indice<0) {
+    if (indice < 0) {
         res.status(404).json({
             success: false,
             error_code: 4323,
-            message: "No se encuentra el cliente que se quiere borrar con el id: "+id
-        });  
+            message: "No se encuentra el cliente que se quiere borrar con el id: " + id
+        });
     } else {
-        let clienteEliminado=CLIENTES.splice(indice,1);
+        let clienteEliminado = CLIENTES.splice(indice, 1);
         res.json({
             success: true,
             message: "Cliente eliminado con éxito",
