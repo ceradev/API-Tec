@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  div.my-8.flex.items-center.justify-center.flex-col
+    h1.text-4xl.font-extrabold.mb-4 Details 
+    dl.max-w-md.text-gray-900.divide-y.divide-gray-200.dark.text-white.dark.divide-gray-700
+      div.flex.flex-col.pb-3
+        div.ml
+          dt.mb-1.text-gray-500.md.text-lg.dark.text-gray-400.mt-8 Name
+          dd#inputName.text-lg.font-semibold.text-black
+      div.flex.flex-col.pb-3
+        div
+          dt.mb-1.text-gray-500.md.text-lg.dark.text-gray-400.mt-8 Amount
+          dd#inputAmount.text-lg.font-semibold.text-black
+      div.flex.flex-col.pb-3
+        div
+          dt.mb-1.text-gray-500.md.text-lg.dark.text-gray-400.mt-8 Price
+          dd#inputPrice.text-lg.font-semibold.text-black
+      div.flex.flex-col.py-3
+        div
+          dt.mb-1.text-gray-500.md.text-lg.dark.text-gray-400.mt-8 Quantity
+          dd#inputQuantity.text-lg.font-semibold.text-black
+      div.flex.flex-col.py-3

@@ -1,0 +1,19 @@
+extends layout
+
+block content
+    div.flex.items-center.justify-center.min-h-screen.mt-8
+        div.relative.overflow-auto.shadow-md.sm.rounded-lg.max-w-screen-md.w-full.mb-16
+            table.w-full.text-sm.text-left.rtl.text-right.bg-teal-500.table-auto.min-w-full
+                thead.text-xs.text-white.uppercase.bg-teal-500.bg-white.text-black
+                    tr
+                        th(scope='col' class='px-6 py-3 text-center text-teal-500 min-w-max cursor-pointer')
+                            a(href='#' onclick='filtrarPor("ID")') ID
+                        th(scope='col' class='px-6 py-3 text-center text-teal-500 min-w-max cursor-pointer')
+                            a(href='#' onclick='filtrarPor("Nombre")') Name
+                        th(scope='col' class='px-6 py-3 text-center text-teal-500 min-w-max cursor-pointer')
+                            a(href='#' onclick='filtrarPor("Cantidad")') Quantity
+                        th(scope='col' class='px-6 py-3 text-center text-teal-500 min-w-max cursor-pointer')
+                            a(href='#' onclick='filtrarPor("Precio")') Price
+                        th(scope='col' class='px-6 py-3 text-center text-teal-500 min-w-max cursor-pointer')
+                        span.sr-only Actions
+                        tbody

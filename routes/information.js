@@ -6,7 +6,11 @@ router.get('/user', (req, res) => {
 });
 
 router.get('/components', (req, res) => {
-    res.render('user_components');
+    res.render('components_info');
 });
+
+router.get('/component', (req, res) => {
+    res.render('view_component');
+})
 
 module.exports = router;

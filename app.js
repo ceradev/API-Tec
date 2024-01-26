@@ -16,7 +16,7 @@ app.use('/css', express.static(path.join(__dirname, 'public', 'css')));
 
 app.use('/', require('./routes/index'));
 app.use('/auth', require('./routes/auth'));
-app.use('/date', require('./routes/date'));
+app.use('/information', require('./routes/information'));
 app.use('/api/users', require('./routes/users'));
 app.use('/api/components', require('./routes/components'));
 
