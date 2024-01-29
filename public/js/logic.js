@@ -15,9 +15,10 @@ async function registrateUser(event) {
         const json = await response.json();
 
         if (json.success) {
-            // Redirige a la página de inicio de sesión
-            showMessage("¡Usuario registrado con éxito! Ahora puedes iniciar sesión.", true);
-            window.location.href = 'http://localhost:3000/auth/login';
+            // Redirige a la página de inicio de sesión después de mostrar el mensaje
+            showMessage("¡Usuario registrado con éxito! Ahora puedes iniciar sesión.", true, () => {
+                window.location.href = 'http://localhost:3000/auth/login';
+            });
         } else {
             showMessage("Error al registrar usuario. Por favor, verifica tus datos e intenta nuevamente.", false);
             console.error(json.message);
@@ -61,15 +62,14 @@ async function authenticateUser(event) {
         if (authenticatedUser) {
             sessionStorage.setItem('user', JSON.stringify(authenticatedUser));
             // Redirige a la página principal
-            showMessage("¡Inicio de sesión exitoso! Bienvenido de nuevo.", true);
-            window.location.href = 'http://localhost:3000';
+            showMessage("¡Inicio de sesión exitoso! Bienvenido de nuevo a tu cuenta " + authenticatedUser.username, true, () => {
+                window.location.href = 'http://localhost:3000';
+            });
         } else {
             showMessage("Credenciales incorrectas. Por favor, verifica tu nombre de usuario y contraseña.", false);
-            console.error("Credenciales incorrectas");
         }
     } catch (error) {
         showMessage("Error al realizar el inicio de sesión. Por favor, intenta nuevamente más tarde.", false);
-        console.error("Error al realizar el inicio de sesión:", error);
     }
 }
 
@@ -126,12 +126,13 @@ function hideButtons() {
     }
 }
 
-function showMessage(message, isSuccess = true) {
+// Función para mostrar un mensaje con callback
+function showMessage(message, isSuccess = true, callback) {
     const messageContainer = document.querySelector('.message-container');
     const messageText = document.querySelector('.message-text');
 
-    // Agregar estilos dependiendo del tipo de mensaje (éxito o error)
-    messageContainer.className = isSuccess ? 'message-container success' : 'message-container error';
+    // Aplicar clases de estilo dependiendo del tipo de mensaje (éxito o error)
+    messageContainer.className = isSuccess ? 'message-container success-message' : 'message-container error-message';
 
     messageText.textContent = message;
 
@@ -142,19 +143,22 @@ function showMessage(message, isSuccess = true) {
     setTimeout(() => {
         messageContainer.style.display = 'none';
         messageText.textContent = '';
-    }, 5000);
+
+        // Ejecutar la función de retorno de llamada después de ocultar el mensaje
+        if (callback) {
+            callback();
+        }
+    }, 2000);
 }
 
 // Función para cerrar sesión del usuario
 async function logoutUser() {
     try {
         sessionStorage.removeItem('user');
-        showMessage("¡Sesión cerrada con éxito! Redirigiendo a la página de inicio.", true);
-        setTimeout(() => {
-            location.href = 'http://localhost:3000';
-        }, 3000);  // Recarga la página después de 3 segundos (ajusta según tus necesidades)
+        showMessage("¡Sesión cerrada con éxito! Redirigiendo a la página de inicio.", true, () => {
+            window.location.href = 'http://localhost:3000';
+        });
     } catch (error) {
-        console.error("Error al cerrar sesión:", error);
         showMessage("Error al cerrar sesión. Por favor, intenta nuevamente más tarde.", false);
     }
 }
@@ -183,15 +187,14 @@ async function addComponent(event) {
 
         if (json.success) {
             // Redirige a la página de inicio de sesión
-            showMessage("¡Componente creado con éxito! Puedes verlo en tu lista de componentes.", true);
-            window.location.href = 'http://localhost:3000/information/components';
+            showMessage("¡Componente creado con éxito! Puedes verlo en tu lista de componentes.", true, () => {
+                window.location.href = 'http://localhost:3000/information/components';
+            });
         } else {
             showMessage("Error al crear componente. Por favor, verifica tus datos e intenta nuevamente.", false);
-            console.error(json.message);
         }
     } catch (error) {
         showMessage("Error al crear componente. Por favor, intenta nuevamente más tarde.", false);
-        console.error("Error al realizar el registro:", error);
     }
 }
 
@@ -236,8 +239,9 @@ async function modifyComponent() {
         });
 
         if (response.ok) {
-            showMessage("¡Componente modificado con éxito!", true);
-            window.location.href = 'http://localhost:3000/information/components';
+            showMessage("¡Componente modificado con éxito!", true, () => {
+                window.location.href = 'http://localhost:3000/information/components';
+            });
         } else {
             showMessage("Error al modificar componente. Por favor, verifica tus datos e intenta nuevamente.", false);
             throw new Error("Server error");
@@ -260,8 +264,9 @@ async function deleteComponent(id) {
         });
 
         if (response.ok) {
-            showMessage("¡Componente eliminado con éxito!", true);
-            location.reload();
+            showMessage("¡Componente eliminado con éxito!", true, () => {
+                window.location.href = 'http://localhost:3000/information/components';
+            });
         } else {
             showMessage("Error al eliminar componente. Por favor, intenta nuevamente más tarde.", false);
             throw new Error("Server error");

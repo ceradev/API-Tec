@@ -3,7 +3,20 @@ const router = express.Router();
 
 const COMPONENTS = require('../data/components');
 
-// Definir rutas para usuarios
+// Constantes para códigos de error
+const ERROR_USER_NOT_FOUND = 4321;
+const ERROR_COMPONENT_NOT_FOUND = 4322;
+
+// Función para manejar errores 404
+function sendNotFoundResponse(res, errorCode, message) {
+    res.status(404).json({
+        success: false,
+        error_code: errorCode,
+        message: message
+    });
+}
+
+// Ruta para obtener la lista de componentes
 router.get('/', (req, res) => {
     res.json({
         success: true,
@@ -12,166 +25,144 @@ router.get('/', (req, res) => {
     });
 });
 
+// Ruta para obtener componentes de un usuario por ID
 router.get('/user/:id', (req, res) => {
-    let id = req.params.id;
-    const filter = COMPONENTS.filter(user => user.id == id);
-    if (filter.length > 0) {
+    const userId = parseInt(req.params.id);
+    
+    const user = COMPONENTS.find(user => user.id === userId);
+
+    if (user) {
         res.json({
             success: true,
-            message: "Se ha encontrado los componentes del usuario con id : " + id,
-            data: filter[0]
+            message: `Components found for user with ID ${userId}`,
+            data: user
         });
     } else {
-        res.status(404).json({
-            success: false,
-            error_code: 4321,
-            message: "No se encuentran los componentes del usuario con el id: " + id
-        });
+        sendNotFoundResponse(res, ERROR_USER_NOT_FOUND, `No components found for user with ID ${userId}`);
     }
 });
 
+// Ruta para obtener detalles de un componente por ID de usuario y componente
 router.get('/:userId/component/:componentId', (req, res) => {
     const userId = parseInt(req.params.userId);
     const componentId = parseInt(req.params.componentId);
 
-    let componentFound = false;
+    const user = COMPONENTS.find(user => user.id === userId);
 
-    COMPONENTS.forEach(user => {
-        if (userId === user.id) {
-            user.componentes_pc.forEach((component) => {
-                if (component.id === componentId) {
-                    res.json({
-                        success: true,
-                        message: "Se ha encontrado el componente con id: " + componentId,
-                        data: component
-                    });
-                    componentFound = true;
-                }
-            });
-        }
-    });
+    if (user) {
+        const component = user.componentes_pc.find(component => component.id === componentId);
 
-    if (!componentFound) {
-        res.status(404).json({
-            success: false,
-            error_code: 4322,
-            message: "No se encuentra el componente con el id: " + componentId
-        });
-    }
-});
-router.post('/:id', (req, res) => {
-    const userId = parseInt(req.params.id);
-
-    const newComponent = req.body;
-
-    COMPONENTS.forEach(user => {
-        if (userId === user.id) {
-            if (user.componentes_pc.length === 0) {
-                newComponent.id = 1;
-            } else {
-                newComponent.id = user.componentes_pc.length + 1;
-            }
-    
-            user.componentes_pc.push(newComponent);
-    
+        if (component) {
             res.json({
                 success: true,
-                message: "Se ha agregado el componente con el id: " + newComponent.id,
-                data: newComponent
+                message: `Component found with ID ${componentId}`,
+                data: component
             });
+        } else {
+            sendNotFoundResponse(res, ERROR_COMPONENT_NOT_FOUND, `No component found with ID ${componentId}`);
         }
-    });
+    } else {
+        sendNotFoundResponse(res, ERROR_USER_NOT_FOUND, `No user found with ID ${userId}`);
+    }
 });
+
+// Ruta para agregar un nuevo componente a un usuario por ID
+router.post('/:id', (req, res) => {
+    const userId = parseInt(req.params.id);
+    const newComponent = req.body;
+
+    // Verificar campos obligatorios
+    if (!newComponent.nombre || !newComponent.cantidad || !newComponent.descripcion || !newComponent.precio) {
+        res.status(400).json({
+            success: false,
+            message: "Missing required fields"
+        });
+        return;
+    }
+
+    // Encontrar al usuario
+    const user = COMPONENTS.find(user => user.id === userId);
+
+    if (user) {
+        // Generar un nuevo ID para el componente
+        newComponent.id = user.componentes_pc.length + 1;
+
+        // Agregar el nuevo componente a la lista del usuario
+        user.componentes_pc.push(newComponent);
+
+        res.json({
+            success: true,
+            message: `Component added with ID ${newComponent.id}`,
+            data: newComponent
+        });
+    } else {
+        sendNotFoundResponse(res, ERROR_USER_NOT_FOUND, `No user found with ID ${userId}`);
+    }
+});
+
+// Ruta para actualizar un componente por ID de usuario y componente
 router.put('/:userId/component/:componentId', (req, res) => {
     const userId = parseInt(req.params.userId);
     const componentId = parseInt(req.params.componentId);
-
-    let oldComponent = false;
-
     const newComponent = req.body;
 
-    let userFound = false;
+    // Encontrar al usuario
+    const user = COMPONENTS.find(user => user.id === userId);
 
-    COMPONENTS.forEach(user => {
-        if (userId === user.id) {
-            userFound = true; // Marcamos que hemos encontrado al usuario
+    if (user) {
+        // Encontrar el componente
+        const componentIndex = user.componentes_pc.findIndex(component => component.id === componentId);
 
-            user.componentes_pc.forEach((component) => {
-                if (component.id === componentId) {
-                    oldComponent = component;
-                    // Actualizamos los campos del componente con los nuevos valores
-                    Object.assign(component, newComponent);
+        if (componentIndex !== -1) {
+            // Almacenar el componente antiguo antes de actualizarlo
+            const oldComponent = { ...user.componentes_pc[componentIndex] };
 
-                    res.json({
-                        success: true,
-                        message: "Se ha actualizado el componente con el id: " + componentId,
-                        data: oldComponent
-                    });
-                }
+            // Actualizar el componente con los nuevos valores
+            user.componentes_pc[componentIndex] = { ...oldComponent, ...newComponent };
+
+            res.json({
+                success: true,
+                message: `Component updated with ID ${componentId}`,
+                data: oldComponent
             });
+        } else {
+            sendNotFoundResponse(res, ERROR_COMPONENT_NOT_FOUND, `No component found with ID ${componentId}`);
         }
-    });
-
-    // Si no se encontró al usuario, devolvemos un error 404
-    if (!userFound) {
-        res.status(404).json({
-            success: false,
-            error_code: 4321,
-            message: "No se encuentra el usuario con el id: " + userId
-        });
-    } else if (!oldComponent) {
-        // Si el componente no se encontró en el usuario, devolvemos un error 404
-        res.status(404).json({
-            success: false,
-            error_code: 4322,
-            message: "No se encuentra el componente con el id: " + componentId
-        });
+    } else {
+        sendNotFoundResponse(res, ERROR_USER_NOT_FOUND, `No user found with ID ${userId}`);
     }
 });
 
+// Ruta para eliminar un componente por ID de usuario y componente
 router.delete('/:userId/component/:componentId', (req, res) => {
     const userId = parseInt(req.params.userId);
     const componentId = parseInt(req.params.componentId);
 
-    COMPONENTS.forEach(user => {
-        if (userId === user.id) {
-            user.componentes_pc.forEach((component, index) => {
-                if (component.id === componentId) {
-                    user.componentes_pc.splice(index, 1);
-                    res.json({
-                        success: true,
-                        message: "Se ha eliminado el componente con el id: " + componentId
-                    });
-                    return; // Termina la función después de eliminar el componente
-                }
+    // Encontrar al usuario
+    const userIndex = COMPONENTS.findIndex(user => user.id === userId);
+
+    if (userIndex !== -1) {
+        const user = COMPONENTS[userIndex];
+
+        // Encontrar el componente
+        const componentIndex = user.componentes_pc.findIndex(component => component.id === componentId);
+
+        if (componentIndex !== -1) {
+            // Eliminar el componente de la lista del usuario
+            const deletedComponent = user.componentes_pc.splice(componentIndex, 1)[0];
+
+            res.json({
+                success: true,
+                message: `Component deleted with ID ${componentId}`,
+                data: deletedComponent
             });
+        } else {
+            sendNotFoundResponse(res, ERROR_COMPONENT_NOT_FOUND, `No component found with ID ${componentId}`);
         }
-    });
-
-    // Si llega aquí, significa que no se encontró el usuario o el componente
-    res.status(404).json({
-        success: false,
-        message: "Usuario o componente no encontrado."
-    });
-});
-
-function MergeRecursive(obj1, obj2) {
-    for (let p in obj2) {
-        try {
-            // Property in destination object set; update its value.
-            if (obj2[p].constructor == Object) {
-                obj1[p] = MergeRecursive(obj1[p], obj2[p]);
-            } else {
-                obj1[p] = obj2[p];
-            }
-        } catch (e) {
-            // Property in destination object not set; create it and set its value.
-            obj1[p] = obj2[p];
-        }
+    } else {
+        sendNotFoundResponse(res, ERROR_USER_NOT_FOUND, `No user found with ID ${userId}`);
     }
-    return obj1;
-}
+});
 
 // Exportar el enrutador
 module.exports = router;
-

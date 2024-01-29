@@ -751,24 +751,8 @@ select {
   border-width: 0;
 }
 
-.static {
-  position: static;
-}
-
-.fixed {
-  position: fixed;
-}
-
-.absolute {
-  position: absolute;
-}
-
 .relative {
   position: relative;
-}
-
-.sticky {
-  position: sticky;
 }
 
 .bottom-0 {
@@ -777,10 +761,6 @@ select {
 
 .left-0 {
   left: 0px;
-}
-
-.right-0 {
-  right: 0px;
 }
 
 .z-20 {
@@ -838,10 +818,6 @@ select {
 
 .block {
   display: block;
-}
-
-.inline-block {
-  display: inline-block;
 }
 
 .flex {
@@ -1180,15 +1156,29 @@ select {
     margin-right: 1rem;
   }
 
-  .lg\:mt-0 {
-    margin-top: 0px;
-  }
-
   .lg\:inline-block {
     display: inline-block;
   }
+}
 
-  .lg\:hidden {
-    display: none;
-  }
+/* Clase para mensajes de éxito */
+.success-message {
+  background-color: #34d399; /* Color verde para éxito */
+  color: #ffffff; /* Texto blanco */
+  padding: 1rem; /* Espaciado interno */
+  border-radius: 0.5rem; /* Bordes redondeados */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Clase para mensajes de error */
+.error-message {
+  background-color: #ef4444; /* Color rojo para error */
+  color: #ffffff; /* Texto blanco */
+  padding: 1rem; /* Espaciado interno */
+  border-radius: 0.5rem; /* Bordes redondeados */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
