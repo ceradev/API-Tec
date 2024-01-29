@@ -34,8 +34,8 @@ Esta API proporciona funcionalidades para la gestión de usuarios y componentes 
   - Listar Usuarios: `GET /api/users`
   - Obtener Usuario por ID: `GET /api/users/:id`
   - Registrar Usuario: `POST /api/users`
-  - Modificar Usuario: `PUT /api/users/:id`
-  - Eliminar Usuario: `DELETE /api/users/:id`
+  - Modificar Usuario: `PUT /api/users/:id` (El modificar todavía no está acabado)
+  - Eliminar Usuario: `DELETE /api/users/:id` (Este está hecho pero no esta implementado en la parte del cliente)
 
 - **Rutas API de Componentes:** `/api/components`
   - Listar Componentes de Usuario: `GET /api/components/user/:id`
