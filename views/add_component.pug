@@ -1,0 +1,20 @@
+extends layout 
+
+block content 
+
+    div.flex.items-center.justify-center.min-h-screen.mt-8
+        form.w-full.max-w-md
+            .mb-4
+                label.block.text-gray-700.text-sm.font-bold.mb-2(for='name') Name
+                input.appearance-none.border.border-gray-200.rounded.w-full.py-2.px-3.text-gray-700.leading-tight.focus.outline-none.focus.border-teal-500(type='text' placeholder='Name of the component' id='name')
+            .mb-4
+                label.block.text-gray-700.text-sm.font-bold.mb-2(for='quantity') Quantity
+                input.appearance-none.border.border-gray-200.rounded.w-full.py-2.px-3.text-gray-700.leading-tight.focus.outline-none.focus.border-teal-500(type='number' placeholder='Quantity' id='quantity')
+            .mb-4
+                label.block.text-gray-700.text-sm.font-bold.mb-2(for='price') Price
+                input.appearance-none.border.border-gray-200.rounded.w-full.py-2.px-3.text-gray-700.leading-tight.focus.outline-none.focus.border-teal-500(type='number' placeholder= 'Price' id='price')
+            .mb-4
+                label.block.text-gray-700.text-sm.font-bold.mb-2(for='address') Description
+                textarea.appearance-none.border.border-gray-200.rounded.w-full.py-2.px-3.text-gray-700.leading-tight.focus.outline-none.focus.border-teal-500(placeholder='Tell the description of the component here...' id='description' cols="30" rows="10")
+            .mb-4
+                button.bg-teal-500.hover.bg-teal-700.text-white.font-bold.py-2.px-4.rounded-full(onclick='addComponent(event)' id='addComponentButton') Add Component

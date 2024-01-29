@@ -1,16 +1,17 @@
 const express = require('express');
 const router = express.Router();
 
+const COMPONENTS = require('../data/components');
 const USERS = require('../data/users');
+
 
 // Definir rutas para usuarios
 router.get('/', (req, res) => {
     // Tu lógica para obtener todos los usuarios
     const queries = req.query;
     const keys = Object.keys(queries);
-    console.log('Query Parameters:', queries);  // Agrega este registro para verificar los parámetros del query
     const error_code = 0;  // No hay error.
-    console.log('Query Parameters:', queries); const error_message = "";
+    const error_message = "";
     const wrong_keys = [];
     keys.forEach(key => {
         if (!PARAMETERS.includes(key)) wrong_keys.push(key);
@@ -110,6 +111,17 @@ router.post('/', (req, res) => {
         newUser.id = USERS.length + 1;
         newUser.perfil_id = USERS.length + 1;
         USERS.push(newUser);
+
+         // Crear un registro de componente asociado con el usuario
+         const newComponent = {
+            id: COMPONENTS.length + 1,
+            nombre_usuario: newUser.username,
+            componentes_pc: []
+        };
+
+        COMPONENTS.push(newComponent);
+
+        // Devuelvo el nuevo usuario
         res.status(201).json({
             success: true,
             message: "Usuario registrado con éxito",
@@ -127,7 +139,7 @@ router.post('/', (req, res) => {
 
 router.put('/:id', (req, res) => {
     let id = req.params.id;
-    let filtro = CLIENTES.filter(cliente => cliente.id == id);
+    let filtro = USERS.filter(user => user.id == id);
     if (filtro.length == 0) {
         res.status(404).json({
             success: false,
@@ -140,7 +152,7 @@ router.put('/:id', (req, res) => {
         MergeRecursive(viejosDatos, nuevosDatos);
         res.json({
             success: true,
-            message: "Cliente modificado con éxito",
+            message: "El usuario con el id: " + id + " ha sido modificado con éxito",
             data: viejosDatos
         });
     }

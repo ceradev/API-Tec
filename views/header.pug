@@ -1,14 +1,16 @@
 header
   nav.flex.items-center.justify-between.flex-wrap.bg-teal-500.p-6
     div.flex.items-center.flex-shrink-0.text-white.mr-6
-      span.font-semibold.text-xl.tracking-tight
+      span.flex.font-semibold.text-xl.tracking-tight
         a(href="http://localhost:3000" class="block mt-4 font-semibold text-xl tracking-tight hover:shadow-lg mr-4")
           | API Tec
         a(href="http://localhost:3000/information/components" class="block mt-4 font-semibold text-xl tracking-tight hover:shadow-lg mr-4 hidden" id="yourComponentsButton")
           | Your Components
+        a(href="http://localhost:3000/auth/component" class="block mt-4 font-semibold text-xl tracking-tight hover:shadow-lg lg:mr-4 lg:ml-auto hidden" id="addComponentButton")
+            | Add Component  
     div.flex-grow.lg.flex.lg.items-center.lg.w-auto
       div.text-sm.lg.flex-grow.lg.text-right
-        div#userInfo(style="display: none;")
+        div#userInfo
         a(href="http://localhost:3000/auth/register" class="block mt-4 lg:inline-block text-teal-200 hover:text-white mr-4" id="registerButton")
           | Register
         a(href="http://localhost:3000/auth/login" class="block mt-4 lg:inline-block text-teal-200 hover:text-white" id="loginButton")
