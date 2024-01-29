@@ -1,19 +1,45 @@
-# DEW2023-APITec
+# API de Gestión de Usuarios y Componentes
 
-## Descripción
-DEW2023-APITec es un proyecto integral que busca desarrollar una robusta API y una interfaz de usuario para gestionar eficientemente una tienda de tecnología. Cumple con los estándares REST al implementar operaciones CRUD, ofreciendo tanto listados generales como vistas individuales de recursos. La API incluye mecanismos de control y detección de errores, siguiendo las mejores prácticas de códigos de estado y mensajes de error.
+Esta API proporciona funcionalidades para la gestión de usuarios y componentes de un sistema. Permite realizar operaciones como registrar nuevos usuarios, obtener detalles de usuarios existentes, modificar información de usuarios, listar componentes asociados a un usuario, crear nuevos componentes, y más.
 
 ## Funcionalidades Principales
-- **Operaciones CRUD Completo:** Ofrece operaciones de listado, creación, modificación y eliminación de recursos.
-- **Gestión de Errores:** Implementa controles de errores detallados para una experiencia más confiable.
-- **Página del Cliente:** Desarrolla una interfaz de usuario amigable para gestionar productos, inventario, clientes y pedidos.
-- **Validaciones y Confirmación:** Realiza validaciones en el lado del cliente y proporciona retroalimentación sobre el éxito de las operaciones.
 
-## Características Adicionales
-- **Diseño Atractivo:** Enfócate en un diseño intuitivo y amigable para mejorar la experiencia del usuario.
-- **Relación de Recursos:** Explora la posibilidad de gestionar múltiples recursos relacionados, como clientes y pedidos.
-- **Tecnologías Avanzadas:** Utiliza recursos vistos anteriormente, como temporizadores, web components o almacenamiento local.
-- **Base de Datos (Opcional):** Si buscas un desafío adicional, considera la implementación de una versión con base de datos en lugar de archivos JSON.
+### Usuarios
 
-## Licencia
-Este proyecto se distribuye bajo la [Licencia MIT](LICENSE), permitiendo la libre utilización y modificación. ¡Únete a nosotros para crear una experiencia completa y eficiente para los usuarios!
+- **Listar Usuarios:** Obtén una lista de usuarios registrados. Puedes filtrar los resultados según diversos parámetros como nombre de usuario, dirección, teléfono, correo electrónico, contraseña y perfil.
+  
+- **Obtener Usuario por ID:** Consulta detalles específicos de un usuario proporcionando su ID.
+
+- **Registrar Usuario:** Registra un nuevo usuario con información obligatoria como nombre de usuario, dirección, correo electrónico, contraseña y teléfono.
+
+- **Modificar Usuario:** Actualiza la información de un usuario existente proporcionando su ID. Puedes modificar propiedades como nombre de usuario, dirección, correo electrónico, contraseña, teléfono y perfil.
+
+- **Eliminar Usuario:** Elimina un usuario específico según su ID.
+
+### Componentes
+
+- **Listar Componentes de Usuario:** Obtiene la lista de componentes asociados a un usuario específico.
+
+- **Obtener Detalles de Componente:** Consulta detalles específicos de un componente asociado a un usuario.
+
+- **Crear Componente:** Registra un nuevo componente asociado a un usuario. Debes proporcionar detalles como nombre, cantidad, precio y descripción.
+
+- **Modificar Componente:** Actualiza la información de un componente existente asociado a un usuario. Puedes modificar propiedades como nombre, cantidad, precio y descripción.
+
+- **Eliminar Componente:** Elimina un componente específico asociado a un usuario.
+
+## Uso
+
+- **Rutas API de Usuarios:** `/api/users`
+  - Listar Usuarios: `GET /api/users`
+  - Obtener Usuario por ID: `GET /api/users/:id`
+  - Registrar Usuario: `POST /api/users`
+  - Modificar Usuario: `PUT /api/users/:id` (El modificar todavía no está acabado)
+  - Eliminar Usuario: `DELETE /api/users/:id` (Este está hecho pero no esta implementado en la parte del cliente)
+
+- **Rutas API de Componentes:** `/api/components`
+  - Listar Componentes de Usuario: `GET /api/components/user/:id`
+  - Obtener Detalles de Componente: `GET /api/components/:user_id/component/:component_id`
+  - Crear Componente: `POST /api/components/:user_id`
+  - Modificar Componente: `PUT /api/components/:user_id/component/:component_id`
+  - Eliminar Componente: `DELETE /api/components/:user_id/component/:component_id`
