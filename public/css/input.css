@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* Clase para mensajes de éxito */
+.success-message {
+    background-color: #34d399; /* Color verde para éxito */
+    color: #ffffff; /* Texto blanco */
+    padding: 1rem; /* Espaciado interno */
+    border-radius: 0.5rem; /* Bordes redondeados */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    margin-top: 10px; /* Margen superior */
+    margin-bottom: 10px; /* Margen inferior */
+  }
+  
+  /* Clase para mensajes de error */
+  .error-message {
+    background-color: #ef4444; /* Color rojo para error */
+    color: #ffffff; /* Texto blanco */
+    padding: 1rem; /* Espaciado interno */
+    border-radius: 0.5rem; /* Bordes redondeados */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    margin-top: 10px; /* Margen superior */
+    margin-bottom: 10px; /* Margen inferior */
+  }

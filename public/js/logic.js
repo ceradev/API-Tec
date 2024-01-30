@@ -1,118 +1,34 @@
-// Función para registrar un usuario
-async function registrateUser(event) {
-    event.preventDefault(); // Evita la recarga de la página
-
+// Función auxiliar para hacer una solicitud a la API
+async function makeApiRequest(url, options) {
     try {
-        const requestOptions = {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(loadDataUser())
-        };
 
-        const response = await fetch("http://localhost:3000/api/users/", requestOptions);
-        const json = await response.json();
+        const response = await fetch(url, options);
 
-        if (json.success) {
-            // Redirige a la página de inicio de sesión después de mostrar el mensaje
-            showMessage("¡Usuario registrado con éxito! Ahora puedes iniciar sesión.", true, () => {
-                window.location.href = 'http://localhost:3000/auth/login';
-            });
+        if (response.ok) {
+            const json = await response.json();
+            return json;
         } else {
-            showMessage("Error al registrar usuario. Por favor, verifica tus datos e intenta nuevamente.", false);
-            console.error(json.message);
+            throw new Error(`Error en la solicitud a ${url}: ${response.statusText}`);
         }
     } catch (error) {
-        showMessage("Error al registrar usuario. Por favor, intenta nuevamente más tarde.", false);
-        console.error("Error al realizar el registro:", error);
+        throw new Error(`Error en la solicitud a ${url}: ${error.message}`);
     }
 }
 
-// Función para cargar los datos del usuario
-function loadDataUser() {
-    const username = document.querySelector('#username').value;
-    const email = document.querySelector('#email').value;
-    const password = document.querySelector('#password').value;
-    const address = document.querySelector('#address').value;
-    const tel = document.querySelector('#phone').value;
-
-    return {
-        "username": username,
-        "email": email,
-        "password": password,
-        "address": address,
-        "tel": tel
-    };
-}
-
-// Función para autenticar al usuario
-async function authenticateUser(event) {
-    event.preventDefault();
-
-    const username = document.querySelector('#username').value;
-    const password = document.querySelector('#password').value;
-
-    try {
-        const response = await fetch("http://localhost:3000/api/users");
-        const json = await response.json();
-
-        const authenticatedUser = json.data.users.find(user => user.username === username && user.password === password);
-
-        if (authenticatedUser) {
-            sessionStorage.setItem('user', JSON.stringify(authenticatedUser));
-            // Redirige a la página principal
-            showMessage("¡Inicio de sesión exitoso! Bienvenido de nuevo a tu cuenta " + authenticatedUser.username, true, () => {
-                window.location.href = 'http://localhost:3000';
-            });
-        } else {
-            showMessage("Credenciales incorrectas. Por favor, verifica tu nombre de usuario y contraseña.", false);
-        }
-    } catch (error) {
-        showMessage("Error al realizar el inicio de sesión. Por favor, intenta nuevamente más tarde.", false);
+// Función auxiliar para manejar la respuesta exitosa de la API
+function handleApiResponseSuccess(json, successMessage, successCallback) {
+    if (json.success) {
+        showMessage(successMessage, true, successCallback);
+    } else {
+        showMessage(`Error: ${json.message}`, false);
+        console.error(json.message);
     }
 }
 
-// Función para verificar la sesión del usuario
-async function verifySession() {
-    const user = JSON.parse(sessionStorage.getItem('user'));
-
-    try {
-        if (user) {
-            // Muestra el nombre del usuario en algún elemento HTML
-            const userInfo = document.getElementById('userInfo');
-            const userComponents = document.getElementById('yourComponentsButton');
-
-            if (userInfo) {
-                if(window.location.pathname === '/information/components') {
-                    document.getElementById('addComponentButton').style.display = 'hidden';
-                }
-                userInfo.innerHTML += `<a href="http://localhost:3000/information/user" class="text-teal-200 hover:text-white">${user.username}</a> | `;
-                userInfo.innerHTML += `<a href="http://localhost:3000" onclick="logoutUser()" class="text-teal-200 hover:text-white">Logout</a>`;
-                userInfo.style.display = 'inline';
-                userComponents.style.display = 'block';
-                hideButtons();
-            }
-        }
-    } catch (error) {
-        console.error("Error al verificar la sesión:", error);
-    }
-}
-
-// Función para cargar información del usuario
-async function loadUser(event) {
-    event.preventDefault();
-
-    authenticatedUser = null;
-
-    const user = JSON.parse(sessionStorage.getItem('user'));
-
-    if (user) {
-        document.getElementById('inputUsername').textContent = user.username;
-        document.getElementById('inputAddress').textContent = user.address;
-        document.getElementById('inputTel').textContent = user.tel;
-        document.getElementById('inputEmail').textContent = user.email;
-    }
+// Función auxiliar para manejar errores en las solicitudes a la API
+function handleApiRequestError(errorMessage) {
+    showMessage(errorMessage, false);
+    console.error(errorMessage);
 }
 
 // Función para ocultar botones de registro y login al iniciar sesión
@@ -151,26 +67,8 @@ function showMessage(message, isSuccess = true, callback) {
     }, 2000);
 }
 
-// Función para cerrar sesión del usuario
-async function logoutUser() {
-    try {
-        sessionStorage.removeItem('user');
-        showMessage("¡Sesión cerrada con éxito! Redirigiendo a la página de inicio.", true, () => {
-            window.location.href = 'http://localhost:3000';
-        });
-    } catch (error) {
-        showMessage("Error al cerrar sesión. Por favor, intenta nuevamente más tarde.", false);
-    }
-}
-
-// Función para modificar información del usuario
-async function modifyUser() {
-    // Implementar según sea necesario
-}
-
-// Función para crear un nuevo componente
-async function addComponent(event) {
-
+// Función para registrar un usuario
+async function registrateUser(event) {
     event.preventDefault(); // Evita la recarga de la página
 
     try {
@@ -179,140 +77,121 @@ async function addComponent(event) {
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(loadDataComponent())
+            body: JSON.stringify(loadDataUser())
         };
 
-        const response = await fetch("http://localhost:3000/api/components/" + JSON.parse(sessionStorage.getItem('user')).id , requestOptions);
-        const json = await response.json();
+        const response = await makeApiRequest("http://localhost:3000/api/users/", requestOptions);
 
-        if (json.success) {
-            // Redirige a la página de inicio de sesión
-            showMessage("¡Componente creado con éxito! Puedes verlo en tu lista de componentes.", true, () => {
-                window.location.href = 'http://localhost:3000/information/components';
-            });
-        } else {
-            showMessage("Error al crear componente. Por favor, verifica tus datos e intenta nuevamente.", false);
-        }
+        // Redirige a la página de inicio de sesión
+        handleApiResponseSuccess(response, "¡Usuario registrado con éxito! Ahora puedes iniciar sesión.", () => {
+            window.location.href = 'http://localhost:3000/auth/login';
+        });
     } catch (error) {
-        showMessage("Error al crear componente. Por favor, intenta nuevamente más tarde.", false);
+        handleApiRequestError("Error al registrar usuario. Por favor, intenta nuevamente más tarde.");
+        console.error("Error al realizar el registro:", error);
     }
 }
 
-function loadDataComponent() {
-    const nombre = document.getElementById('name').value;
-    const cantidad= document.getElementById('quantity').value;
-    const precio = document.getElementById('price').value;
-    const descripcion = document.getElementById('description').value;
+// Función para cargar los datos del usuario
+function loadDataUser() {
+    const username = document.querySelector('#username').value;
+    const email = document.querySelector('#email').value;
+    const password = document.querySelector('#password').value;
+    const address = document.querySelector('#address').value;
+    const tel = document.querySelector('#phone').value;
 
     return {
-        "nombre": nombre,
-        "cantidad": cantidad,
-        "precio": precio,
-        "descripcion": descripcion,
+        "username": username,
+        "email": email,
+        "password": password,
+        "address": address,
+        "tel": tel
     };
 }
 
-
-
-// Función para modificar un componente
-async function modifyComponent() {
-    // Implementar según sea necesario
-    const name = document.getElementById('name').value;
-    const quantity = document.getElementById('quantity').value;
-    const price = document.getElementById('price').value;
-    const description = document.getElementById('description').value;
-
-    const component = {
-        "nombre": name,
-        "cantidad": quantity,
-        "precio": price,
-        "descripcion": description
-    }
-
-    try {
-        const response = await fetch('http://localhost:3000/api/components/' + JSON.parse(sessionStorage.getItem('user')).id + '/component/' + JSON.parse(sessionStorage.getItem('selectedComponent')).data.id, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(component)
-        });
-
-        if (response.ok) {
-            showMessage("¡Componente modificado con éxito!", true, () => {
-                window.location.href = 'http://localhost:3000/information/components';
-            });
-        } else {
-            showMessage("Error al modificar componente. Por favor, verifica tus datos e intenta nuevamente.", false);
-            throw new Error("Server error");
-        }
-    } catch (error) {
-        showMessage("Error al modificar componente. Por favor, intenta nuevamente más tarde.", false);
-        console.error("Error al realizar la modificación del componente:", error);
-    }
-}
-
-// Función para eliminar un componente
-async function deleteComponent(id) {
-    try {
-        if (!confirm("¿Estás seguro de que deseas eliminar este componente?")) {
-            return;
-        }
-
-        const response = await fetch('http://localhost:3000/api/components/' + JSON.parse(sessionStorage.getItem('user')).id + '/component/' + id, {
-            method: 'DELETE'
-        });
-
-        if (response.ok) {
-            showMessage("¡Componente eliminado con éxito!", true, () => {
-                window.location.href = 'http://localhost:3000/information/components';
-            });
-        } else {
-            showMessage("Error al eliminar componente. Por favor, intenta nuevamente más tarde.", false);
-            throw new Error("Server error");
-        }
-    } catch (error) {
-        console.error(error);
-        showMessage("Error al eliminar componente. Por favor, intenta nuevamente más tarde.", false);
-    }
-}
-
-// Función para ver detalles de un componente
-async function viewComponent(event) {
+// Función para autenticar al usuario
+async function authenticateUser(event) {
     event.preventDefault();
 
-    const component = JSON.parse(sessionStorage.getItem('selectedComponent'));
+    const username = document.querySelector('#username').value;
+    const password = document.querySelector('#password').value;
 
-    const name = document.createElement('input');
-    name.setAttribute('type', 'text');
-    name.value = component.data.nombre;
-    name.id = "name";
-    name.className = "appearance-none border border-gray-200 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-teal-500";
+    try {
+        const json = await makeApiRequest("http://localhost:3000/api/users");
 
-    document.getElementById('inputName').append(name);
+        const authenticatedUser = json.data.users.find(user => user.username === username && user.password === password);
 
-    const quantity = document.createElement('input');
-    quantity.setAttribute('type', 'number');
-    quantity.value = component.data.cantidad;
-    quantity.id = "quantity";
-    quantity.className = "appearance-none border border-gray-200 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-teal-500";
+        if (authenticatedUser) {
+            sessionStorage.setItem('user', JSON.stringify(authenticatedUser));
+            // Redirige a la página principal
+            handleApiResponseSuccess(json, `¡Inicio de sesión exitoso! Bienvenido de nuevo a tu cuenta ${authenticatedUser.username}`, () => {
+                window.location.href = 'http://localhost:3000';
+            });
+        } else {
+            showMessage("Credenciales incorrectas. Por favor, verifica tu nombre de usuario y contraseña.", false);
+        }
+    } catch (error) {
+        handleApiRequestError("Error al realizar el inicio de sesión. Por favor, intenta nuevamente más tarde.");
+    }
+}
 
-    document.getElementById('inputQuantity').append(quantity);
+// Función para verificar la sesión del usuario
+async function verifySession() {
+    const user = JSON.parse(sessionStorage.getItem('user'));
 
-    const description = document.createElement('textarea');
-    description.value = component.data.descripcion;
-    description.id = "description";
-    description.className = "appearance-none border border-gray-200 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-teal-500";
+    try {
+        if (user) {
+            // Muestra el nombre del usuario en algún elemento HTML
+            const userInfo = document.getElementById('userInfo');
+            const userComponents = document.getElementById('yourComponentsButton');
 
-    document.getElementById('inputDescription').append(description);
+            if (userInfo) {
+                if (window.location.pathname === '/information/components') {
+                    document.getElementById('addComponentButton').style.display = 'hidden';
+                }
+                userInfo.innerHTML += `<a href="http://localhost:3000/information/user" class="text-teal-200 hover:text-white">${user.username}</a> | `;
+                userInfo.innerHTML += `<a href="http://localhost:3000" onclick="logoutUser()" class="text-teal-200 hover:text-white">Logout</a>`;
+                userInfo.style.display = 'inline';
+                userComponents.style.display = 'block';
+                hideButtons();
+            }
+        }
+    } catch (error) {
+        console.error("Error al verificar la sesión:", error);
+    }
+}
 
-    const price = document.createElement('input');
-    price.setAttribute('type', 'number');
-    price.value = component.data.precio;
-    price.id = "price";
-    price.className = "appearance-none border border-gray-200 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-teal-500";
+// Función para cargar información del usuario
+async function loadUser(event) {
+    event.preventDefault();
 
-    document.getElementById('inputPrice').append(price);
+    authenticatedUser = null;
+
+    const user = JSON.parse(sessionStorage.getItem('user'));
+
+    if (user) {
+        document.getElementById('inputUsername').textContent = user.username;
+        document.getElementById('inputAddress').textContent = user.address;
+        document.getElementById('inputTel').textContent = user.tel;
+        document.getElementById('inputEmail').textContent = user.email;
+    }
+}
+
+// Función para modificar información del usuario
+async function modifyUser() {
+    // Implementar según sea necesario
+}
+
+// Función para cerrar sesión del usuario
+async function logoutUser() {
+    try {
+        sessionStorage.removeItem('user');
+        showMessage("¡Sesión cerrada con éxito! Redirigiendo a la página de inicio.", true, () => {
+            window.location.href = 'http://localhost:3000';
+        });
+    } catch (error) {
+        handleApiRequestError("Error al cerrar sesión. Por favor, intenta nuevamente más tarde.");
+    }
 }
 
 // Función para cargar los componentes del usuario
@@ -323,18 +202,14 @@ async function loadComponents(event) {
         sessionStorage.removeItem('selectedComponent');
     }
 
-    const response = await fetch('http://localhost:3000/api/components/user/' + JSON.parse(sessionStorage.getItem('user')).id);
-
-    if (response.ok) {
-        const json = await response.json();
-
-        console.log(json);
+    try {
+        const json = await makeApiRequest(`http://localhost:3000/api/components/user/${JSON.parse(sessionStorage.getItem('user')).id}`);
 
         json.data.componentes_pc.forEach(component => {
             loadComponent(component);
         });
-    } else {
-        alert("Server error, please try again later.");
+    } catch (error) {
+        handleApiRequestError("Error al cargar los componentes del usuario. Por favor, intenta nuevamente más tarde.");
     }
 }
 
@@ -370,15 +245,147 @@ async function loadComponent(component) {
     tbody.appendChild(tr);
 }
 
+// Función para crear un nuevo componente
+async function addComponent(event) {
+
+    event.preventDefault(); // Evita la recarga de la página
+
+    try {
+        const requestOptions = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(loadDataComponent())
+        };
+
+        const response = await makeApiRequest("http://localhost:3000/api/components/" + JSON.parse(sessionStorage.getItem('user')).id, requestOptions);
+
+        handleApiResponseSuccess(response, "¡Componente creado con éxito! Puedes verlo en tu lista de componentes.", () => {
+            window.location.href = 'http://localhost:3000/information/components';
+        });
+    } catch (error) {
+        handleApiRequestError("Error al crear componente. Por favor, intenta nuevamente más tarde.");
+    }
+}
+
+function loadDataComponent() {
+    const nombre = document.getElementById('name').value;
+    const cantidad = document.getElementById('quantity').value;
+    const precio = document.getElementById('price').value;
+    const descripcion = document.getElementById('description').value;
+
+    return {
+        "nombre": nombre,
+        "cantidad": cantidad,
+        "precio": precio,
+        "descripcion": descripcion,
+    };
+}
+
+// Función para modificar un componente
+async function modifyComponent() {
+    const name = document.getElementById('name').value;
+    const quantity = document.getElementById('quantity').value;
+    const price = document.getElementById('price').value;
+    const description = document.getElementById('description').value;
+
+    const component = {
+        "nombre": name,
+        "cantidad": quantity,
+        "precio": price,
+        "descripcion": description
+    }
+
+    try {
+        const response = await makeApiRequest('http://localhost:3000/api/components/' + JSON.parse(sessionStorage.getItem('user')).id + '/component/' + JSON.parse(sessionStorage.getItem('selectedComponent')).id, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(component)
+        });
+
+        handleApiResponseSuccess(response, "¡Componente modificado con éxito!", () => {
+            window.location.href = 'http://localhost:3000/information/components';
+        });
+    } catch (error) {
+        handleApiRequestError("Error al modificar componente. Por favor, intenta nuevamente más tarde.");
+        console.error("Error al realizar la modificación del componente:", error);
+    }
+}
+
+// Función para eliminar un componente
+async function deleteComponent(id) {
+    try {
+        if (!confirm("¿Estás seguro de que deseas eliminar este componente?")) {
+            return;
+        }
+
+        const response = await makeApiRequest('http://localhost:3000/api/components/' + JSON.parse(sessionStorage.getItem('user')).id + '/component/' + id, {
+            method: 'DELETE'
+        });
+
+        handleApiResponseSuccess(response, "¡Componente eliminado con éxito!", () => {
+            window.location.href = 'http://localhost:3000/information/components';
+        });
+    } catch (error) {
+        handleApiRequestError("Error al eliminar componente. Por favor, intenta nuevamente más tarde.");
+        console.error(error);
+    }
+}
+
+// Función para ver detalles de un componente
+async function viewComponent(event) {
+    event.preventDefault();
+
+    const component = JSON.parse(sessionStorage.getItem('selectedComponent'));
+
+    const name = document.createElement('input');
+    name.setAttribute('type', 'text');
+    name.value = component.nombre;
+    name.id = "name";
+    name.className = "appearance-none border border-gray-200 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-teal-500";
+
+    document.getElementById('inputName').append(name);
+
+    const quantity = document.createElement('input');
+    quantity.setAttribute('type', 'number');
+    quantity.value = component.cantidad;
+    quantity.id = "quantity";
+    quantity.className = "appearance-none border border-gray-200 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-teal-500";
+
+    document.getElementById('inputQuantity').append(quantity);
+
+    const description = document.createElement('textarea');
+    description.value = component.descripcion;
+    description.id = "description";
+    description.className = "appearance-none border border-gray-200 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-teal-500";
+
+    document.getElementById('inputDescription').append(description);
+
+    const price = document.createElement('input');
+    price.setAttribute('type', 'number');
+    price.value = component.precio;
+    price.id = "price";
+    price.className = "appearance-none border border-gray-200 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-teal-500";
+
+    document.getElementById('inputPrice').append(price);
+}
+
 // Función para ver detalles de un componente y redirigir a la página correspondiente
 async function viewDetails(componentId) {
-    const response = await fetch('http://localhost:3000/api/components/' + JSON.parse(sessionStorage.getItem('user')).id + '/component/' + componentId);
+    try {
+        const response = await makeApiRequest('http://localhost:3000/api/components/' + JSON.parse(sessionStorage.getItem('user')).id + '/component/' + componentId);
 
-    if (response.ok) {
-        const component = await response.json();
-
-        sessionStorage.setItem('selectedComponent', JSON.stringify(component));
-        window.location.href = 'http://localhost:3000/information/component';
+        handleApiResponseSuccess(response, "Componente obtenido con éxito", () => {
+            const component = response;
+            sessionStorage.setItem('selectedComponent', JSON.stringify(component));
+            window.location.href = 'http://localhost:3000/information/component';
+        });
+    } catch (error) {
+        handleApiRequestError("Error al obtener detalles del componente. Por favor, intenta nuevamente más tarde.");
+        console.error(error);
     }
 }
 

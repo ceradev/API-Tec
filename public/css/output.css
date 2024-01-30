@@ -832,6 +832,18 @@ select {
   display: none;
 }
 
+.h-6 {
+  height: 1.5rem;
+}
+
+.h-8 {
+  height: 2rem;
+}
+
+.h-7 {
+  height: 1.75rem;
+}
+
 .min-h-screen {
   min-height: 100vh;
 }
@@ -842,6 +854,18 @@ select {
 
 .w-full {
   width: 100%;
+}
+
+.w-6 {
+  width: 1.5rem;
+}
+
+.w-8 {
+  width: 2rem;
+}
+
+.w-7 {
+  width: 1.75rem;
 }
 
 .min-w-full {
@@ -1136,6 +1160,44 @@ select {
   outline-offset: 2px;
 }
 
+/* Clase para mensajes de éxito */
+
+.success-message {
+  background-color: #34d399;
+  /* Color verde para éxito */
+  color: #ffffff;
+  /* Texto blanco */
+  padding: 1rem;
+  /* Espaciado interno */
+  border-radius: 0.5rem;
+  /* Bordes redondeados */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* Sombra suave */
+  margin-top: 10px;
+  /* Margen superior */
+  margin-bottom: 10px;
+  /* Margen inferior */
+}
+
+/* Clase para mensajes de error */
+
+.error-message {
+  background-color: #ef4444;
+  /* Color rojo para error */
+  color: #ffffff;
+  /* Texto blanco */
+  padding: 1rem;
+  /* Espaciado interno */
+  border-radius: 0.5rem;
+  /* Bordes redondeados */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* Sombra suave */
+  margin-top: 10px;
+  /* Margen superior */
+  margin-bottom: 10px;
+  /* Margen inferior */
+}
+
 .hover\:text-white:hover {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
@@ -1159,26 +1221,4 @@ select {
   .lg\:inline-block {
     display: inline-block;
   }
-}
-
-/* Clase para mensajes de éxito */
-.success-message {
-  background-color: #34d399; /* Color verde para éxito */
-  color: #ffffff; /* Texto blanco */
-  padding: 1rem; /* Espaciado interno */
-  border-radius: 0.5rem; /* Bordes redondeados */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-
-/* Clase para mensajes de error */
-.error-message {
-  background-color: #ef4444; /* Color rojo para error */
-  color: #ffffff; /* Texto blanco */
-  padding: 1rem; /* Espaciado interno */
-  border-radius: 0.5rem; /* Bordes redondeados */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
 }

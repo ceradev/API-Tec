@@ -4,6 +4,18 @@ const router = express.Router();
 const COMPONENTS = require('../data/components');
 const USERS = require('../data/users');
 
+// Constantes para códigos de error
+const ERROR_USER_NOT_FOUND = 4321;
+
+// Función para manejar errores 404
+function sendNotFoundResponse(res, errorCode, message) {
+    res.status(404).json({
+        success: false,
+        error_code: errorCode,
+        message: message
+    });
+}
+
 // Definir los parámetros permitidos para la búsqueda
 const PARAMETERS = ['username', 'address', 'tel', 'email', 'password', 'perfil_id'];
 
@@ -55,7 +67,7 @@ router.get('/', (req, res) => {
             password: user.password,
             perfil_id: user.perfil_id
         }
-    })
+    });
 
     // Enviar respuesta exitosa con la lista de usuarios
     return res.status(200).json({
@@ -82,11 +94,7 @@ router.get('/:id', (req, res) => {
         });
     } else {
         // Enviar respuesta de error si no se encuentra el usuario
-        return res.status(404).json({
-            success: false,
-            error_code: 4321,
-            message: "No se encuentra el usuario con id: " + id
-        });
+        return sendNotFoundResponse(res, ERROR_USER_NOT_FOUND, "No se encuentra el usuario con id: " + id);
     }
 });
 
@@ -133,11 +141,7 @@ router.put('/:id', (req, res) => {
 
     if (filtro.length == 0) {
         // Enviar respuesta de error si no se encuentra el usuario a modificar
-        return res.status(404).json({
-            success: false,
-            error_code: 4322,
-            message: "No se encuentra el usuario que se quiere modificar con id: " + id
-        });
+        return sendNotFoundResponse(res, ERROR_USER_NOT_FOUND, "No se encuentra el usuario que se quiere modificar con id: " + id);
     } else {
         let nuevosDatos = req.body;
         let viejosDatos = filtro[0];
@@ -161,11 +165,7 @@ router.delete('/:id', (req, res) => {
 
     if (indice < 0) {
         // Enviar respuesta de error si no se encuentra el usuario a eliminar
-        return res.status(404).json({
-            success: false,
-            error_code: 4323,
-            message: "No se encuentra el usuario que se quiere borrar con id: " + id
-        });
+        return sendNotFoundResponse(res, ERROR_USER_NOT_FOUND, "No se encuentra el usuario que se quiere borrar con id: " + id);
     } else {
         let userEliminado = USERS.splice(indice, 1);
 
