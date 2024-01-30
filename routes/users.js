@@ -1,10 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
-const COMPONENTS = require('../data/components');
-const USERS = require('../data/users');
+// Requiere Knex con la configuración de SQLite3
+const knexConfig = require('../knexfile');
+const knex = require('knex')(knexConfig.development);
 
-// Constantes para códigos de error
+// Cambia las referencias a la variable USERS con consultas a la base de datos
 const ERROR_USER_NOT_FOUND = 4321;
 
 // Función para manejar errores 404
@@ -20,7 +21,7 @@ function sendNotFoundResponse(res, errorCode, message) {
 const PARAMETERS = ['username', 'address', 'tel', 'email', 'password', 'perfil_id'];
 
 // Ruta para obtener todos los usuarios o filtrar según parámetros de consulta
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
     const queries = req.query;
     const keys = Object.keys(queries);
     let error_code = 0;  // No hay error.
@@ -45,39 +46,45 @@ router.get('/', (req, res) => {
         });
     }
 
-    // Filtrar usuarios según parámetros de consulta
-    const filter_users = USERS.filter(user => {
-        if (queries.username && user.username && !user.username.toLowerCase().includes(queries.username.toLowerCase())) return false;
-        if (queries.address && user.address && user.address.toLowerCase() != queries.address.toLowerCase()) return false;
-        if (queries.tel && user.tel && user.tel.toLowerCase() != queries.tel.toLowerCase()) return false;
-        if (queries.email && user.email && user.email.toLowerCase() != queries.email.toLowerCase()) return false;
-        if (queries.password && user.password && user.password != queries.password) return false;
-        if (queries.perfil_id && user.perfil_id && user.perfil_id != queries.perfil_id) return false;
-        return true;
-    });
+    try {
+        // Utilizar Knex para realizar consultas a la base de datos
+        const filter_users = await knex('users').where(builder => {
+            keys.forEach(key => {
+                builder.orWhere(key, 'ilike', `%${queries[key]}%`);
+            });
+        });
 
-    // Mapear propiedades de usuarios para respuesta
-    const user_properties = filter_users.map(user => {
-        return {
-            id: user.id,
-            username: user.username,
-            address: user.address,
-            tel: user.tel,
-            email: user.email,
-            password: user.password,
-            perfil_id: user.perfil_id
-        }
-    });
+        // Mapear propiedades de usuarios para respuesta
+        const user_properties = filter_users.map(user => {
+            return {
+                id: user.id,
+                username: user.username,
+                address: user.address,
+                tel: user.tel,
+                email: user.email,
+                password: user.password,
+                perfil_id: user.perfil_id
+            };
+        });
 
-    // Enviar respuesta exitosa con la lista de usuarios
-    return res.status(200).json({
-        success: true,
-        message: "Lista de usuarios",
-        data: {
-            count: user_properties.length,
-            users: user_properties
-        }
-    });
+        // Enviar respuesta exitosa con la lista de usuarios
+        return res.status(200).json({
+            success: true,
+            message: "Lista de usuarios",
+            data: {
+                count: user_properties.length,
+                users: user_properties
+            }
+        });
+    } catch (error) {
+        // Manejar errores de la base de datos
+        console.error(error);
+        return res.status(500).json({
+            success: false,
+            error_code: 500,
+            message: "Error en la base de datos"
+        });
+    }
 });
 
 // Ruta para obtener un usuario por ID
