@@ -106,6 +106,15 @@ router.put('/:userId/component/:componentId', (req, res) => {
     const componentId = parseInt(req.params.componentId);
     const newComponent = req.body;
 
+    // Verificar campos obligatorios
+    if (!newComponent.nombre || !newComponent.cantidad || !newComponent.descripcion || !newComponent.precio) {
+        res.status(400).json({
+            success: false,
+            message: "Missing required fields"
+        });
+        return;
+    }
+
     // Encontrar al usuario
     const user = COMPONENTS.find(user => user.id === userId);
 

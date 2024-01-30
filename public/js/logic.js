@@ -298,7 +298,7 @@ async function modifyComponent() {
     }
 
     try {
-        const response = await makeApiRequest('http://localhost:3000/api/components/' + JSON.parse(sessionStorage.getItem('user')).id + '/component/' + JSON.parse(sessionStorage.getItem('selectedComponent')).id, {
+        const response = await makeApiRequest('http://localhost:3000/api/components/' + JSON.parse(sessionStorage.getItem('user')).id + '/component/' + JSON.parse(sessionStorage.getItem('selectedComponent')).data.id, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -343,7 +343,7 @@ async function viewComponent(event) {
 
     const name = document.createElement('input');
     name.setAttribute('type', 'text');
-    name.value = component.nombre;
+    name.value = component.data.nombre;
     name.id = "name";
     name.className = "appearance-none border border-gray-200 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-teal-500";
 
@@ -351,14 +351,14 @@ async function viewComponent(event) {
 
     const quantity = document.createElement('input');
     quantity.setAttribute('type', 'number');
-    quantity.value = component.cantidad;
+    quantity.value = component.data.cantidad;
     quantity.id = "quantity";
     quantity.className = "appearance-none border border-gray-200 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-teal-500";
 
     document.getElementById('inputQuantity').append(quantity);
 
     const description = document.createElement('textarea');
-    description.value = component.descripcion;
+    description.value = component.data.descripcion;
     description.id = "description";
     description.className = "appearance-none border border-gray-200 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-teal-500";
 
@@ -366,7 +366,7 @@ async function viewComponent(event) {
 
     const price = document.createElement('input');
     price.setAttribute('type', 'number');
-    price.value = component.precio;
+    price.value = component.data.precio;
     price.id = "price";
     price.className = "appearance-none border border-gray-200 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-teal-500";
 
