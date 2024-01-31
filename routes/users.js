@@ -1,21 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-// Requiere Knex con la configuración de SQLite3
-const knexConfig = require('../knexfile');
-const knex = require('knex')(knexConfig.development);
-
-// Cambia las referencias a la variable USERS con consultas a la base de datos
-const ERROR_USER_NOT_FOUND = 4321;
-
-// Función para manejar errores 404
-function sendNotFoundResponse(res, errorCode, message) {
-    res.status(404).json({
-        success: false,
-        error_code: errorCode,
-        message: message
-    });
-}
+// Requiere Knex con la configuración de MySQL
+const db = require('../knexfile');
 
 // Definir los parámetros permitidos para la búsqueda
 const PARAMETERS = ['username', 'address', 'tel', 'email', 'password', 'perfil_id'];
@@ -47,10 +34,10 @@ router.get('/', async (req, res) => {
     }
 
     try {
-        // Utilizar Knex para realizar consultas a la base de datos
-        const filter_users = await knex('users').where(builder => {
+        // Utilizar Knex para realizar consultas a la base de datos MySQL
+        const filter_users = await db.select('*').from('users').where(builder => {
             keys.forEach(key => {
-                builder.orWhere(key, 'ilike', `%${queries[key]}%`);
+                builder.orWhere(key, 'like', `%${queries[key]}%`);
             });
         });
 
@@ -77,6 +64,46 @@ router.get('/', async (req, res) => {
             }
         });
     } catch (error) {
+        // Loguear el error detallado
+        console.error(error);
+
+        if (error.code === 'ER_NO_SUCH_TABLE') {
+            // Manejar el error de "Tabla no encontrada"
+            return res.status(500).json({
+                success: false,
+                error_code: 500,
+                message: "La tabla 'users' no existe"
+            });
+        }
+
+        return res.status(500).json({
+            success: false,
+            error_code: 500,
+            message: "Error en la base de datos"
+        });
+    }
+});
+
+// Ruta para obtener un usuario por ID
+router.get('/:id', async (req, res) => {
+    const id = req.params.id;
+
+    try {
+        // Utilizar Knex para obtener un usuario por ID
+        const user = await db('users').where({ id }).first();
+
+        if (user) {
+            // Enviar respuesta exitosa con el usuario encontrado
+            return res.json({
+                success: true,
+                message: "Usuario encontrado con id: " + id,
+                data: user
+            });
+        } else {
+            // Enviar respuesta de error si no se encuentra el usuario
+            return sendNotFoundResponse(res, ERROR_USER_NOT_FOUND, "No se encuentra el usuario con id: " + id);
+        }
+    } catch (error) {
         // Manejar errores de la base de datos
         console.error(error);
         return res.status(500).json({
@@ -87,49 +114,34 @@ router.get('/', async (req, res) => {
     }
 });
 
-// Ruta para obtener un usuario por ID
-router.get('/:id', (req, res) => {
-    const id = req.params.id;
-    const filter = USERS.filter(user => user.id == id);
-
-    if (filter.length > 0) {
-        // Enviar respuesta exitosa con el usuario encontrado
-        return res.json({
-            success: true,
-            message: "Usuario encontrado con id: " + id,
-            data: filter[0]
-        });
-    } else {
-        // Enviar respuesta de error si no se encuentra el usuario
-        return sendNotFoundResponse(res, ERROR_USER_NOT_FOUND, "No se encuentra el usuario con id: " + id);
-    }
-});
-
 // Ruta para registrar un nuevo usuario
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
     let newUser = req.body;
 
     // Comprobar si se proporcionan los datos obligatorios
     if (newUser.username && newUser.address && newUser.email && newUser.password && newUser.tel) {
-        newUser.id = USERS.length + 1;
-        newUser.perfil_id = USERS.length + 1;
-        USERS.push(newUser);
+        try {
+            // Insertar el nuevo usuario en la base de datos
+            const [insertedUserId] = await db('users').insert(newUser);
 
-        // Crear un registro de componente asociado con el usuario
-        const newComponent = {
-            id: COMPONENTS.length + 1,
-            nombre_usuario: newUser.username,
-            componentes_pc: []
-        };
+            // Obtener el usuario recién insertado
+            const insertedUser = await db('users').where({ id: insertedUserId }).first();
 
-        COMPONENTS.push(newComponent);
-
-        // Enviar respuesta exitosa con el nuevo usuario
-        return res.status(201).json({
-            success: true,
-            message: "Usuario registrado con éxito",
-            data: newUser
-        });
+            // Enviar respuesta exitosa con el nuevo usuario
+            return res.status(201).json({
+                success: true,
+                message: "Usuario registrado con éxito",
+                data: insertedUser
+            });
+        } catch (error) {
+            // Manejar errores de la base de datos
+            console.error(error);
+            return res.status(500).json({
+                success: false,
+                error_code: 500,
+                message: "Error en la base de datos al registrar un nuevo usuario"
+            });
+        }
     } else {
         // Enviar respuesta de error si faltan datos obligatorios
         return res.status(422).json({
@@ -142,45 +154,76 @@ router.post('/', (req, res) => {
 });
 
 // Ruta para modificar un usuario por ID
-router.put('/:id', (req, res) => {
+router.put('/:id', async (req, res) => {
     let id = req.params.id;
-    let filtro = USERS.filter(user => user.id == id);
 
-    if (filtro.length == 0) {
-        // Enviar respuesta de error si no se encuentra el usuario a modificar
-        return sendNotFoundResponse(res, ERROR_USER_NOT_FOUND, "No se encuentra el usuario que se quiere modificar con id: " + id);
-    } else {
-        let nuevosDatos = req.body;
-        let viejosDatos = filtro[0];
+    try {
+        // Utilizar Knex para obtener y actualizar un usuario por ID
+        const userToUpdate = await db('users').where({ id }).first();
 
-        // Fusionar datos antiguos y nuevos
-        MergeRecursive(viejosDatos, nuevosDatos);
+        if (userToUpdate) {
+            let nuevosDatos = req.body;
 
-        // Enviar respuesta exitosa con los datos modificados
-        return res.json({
-            success: true,
-            message: "Usuario con id: " + id + " modificado con éxito",
-            data: viejosDatos
+            // Actualizar el usuario en la base de datos
+            await db('users').where({ id }).update(nuevosDatos);
+
+            // Obtener el usuario actualizado
+            const updatedUser = await db('users').where({ id }).first();
+
+            // Enviar respuesta exitosa con los datos modificados
+            return res.json({
+                success: true,
+                message: "Usuario con id: " + id + " modificado con éxito",
+                data: updatedUser
+            });
+        } else {
+            // Enviar respuesta de error si no se encuentra el usuario a modificar
+            return sendNotFoundResponse(res, ERROR_USER_NOT_FOUND, "No se encuentra el usuario que se quiere modificar con id: " + id);
+        }
+    } catch (error) {
+        // Manejar errores de la base de datos
+        console.error(error);
+        return res.status(500).json({
+            success: false,
+            error_code: 500,
+            message: "Error en la base de datos al modificar un usuario"
         });
     }
 });
 
 // Ruta para eliminar un usuario por ID
-router.delete('/:id', (req, res) => {
+router.delete('/:id', async (req, res) => {
     let id = req.params.id;
-    let indice = USERS.findIndex((user) => user.id == id);
 
-    if (indice < 0) {
-        // Enviar respuesta de error si no se encuentra el usuario a eliminar
-        return sendNotFoundResponse(res, ERROR_USER_NOT_FOUND, "No se encuentra el usuario que se quiere borrar con id: " + id);
-    } else {
-        let userEliminado = USERS.splice(indice, 1);
+    try {
+        // Utilizar Knex para eliminar un usuario por ID
+        const userToDelete = await db('users').where({
+            id
+        }).first();
 
-        // Enviar respuesta exitosa con el usuario eliminado
-        return res.json({
-            success: true,
-            message: "Usuario eliminado con éxito",
-            data: userEliminado
+        if (userToDelete) {
+            // Eliminar el usuario de la base de datos
+            await db('users').where({
+                id
+            }).del();
+
+            // Enviar respuesta exitosa con el usuario eliminado
+            return res.json({
+                success: true,
+                message: "Usuario eliminado con éxito",
+                data: userToDelete
+            });
+        } else {
+            // Enviar respuesta de error si no se encuentra el usuario a eliminar
+            return sendNotFoundResponse(res, ERROR_USER_NOT_FOUND, "No se encuentra el usuario que se quiere borrar con id: " + id);
+        }
+    } catch (error) {
+        // Manejar errores de la base de datos
+        console.error(error);
+        return res.status(500).json({
+            success: false,
+            error_code: 500,
+            message: "Error en la base de datos al eliminar un usuario"
         });
     }
 });

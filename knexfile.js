@@ -1,14 +1,16 @@
 // knexfile.js
-module.exports = {
-    client: 'sqlite3',
+const knex = require('knex')({
+    client: 'mysql',
     connection: {
-      filename: './apitec.sqlite' // Puedes cambiar el nombre del archivo si lo deseas
+      host : process.env.DB_HOST,
+      user : process.env.DB_USER,
+      password : process.env.DB_PASSWORD,
+      database : process.env.DB_NAME
     },
-    useNullAsDefault: true,
-    migrations: {
-      directory: './migrations'
+    pool: {
+        min: 2,
+        max: 10
     },
-    seeds: {
-      directory: './seeds'
-    }
-  };
+  });
+
+  module.exports = knex;

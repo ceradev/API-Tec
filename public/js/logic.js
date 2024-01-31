@@ -80,10 +80,10 @@ async function registrateUser(event) {
             body: JSON.stringify(loadDataUser())
         };
 
-        const response = await makeApiRequest("http://localhost:3000/api/users/", requestOptions);
+        const json = await makeApiRequest("http://localhost:3000/api/users/", requestOptions);
 
         // Redirige a la página de inicio de sesión
-        handleApiResponseSuccess(response, "¡Usuario registrado con éxito! Ahora puedes iniciar sesión.", () => {
+        handleApiResponseSuccess(json, "¡Usuario registrado con éxito! Ahora puedes iniciar sesión.", () => {
             window.location.href = 'http://localhost:3000/auth/login';
         });
     } catch (error) {
@@ -259,9 +259,9 @@ async function addComponent(event) {
             body: JSON.stringify(loadDataComponent())
         };
 
-        const response = await makeApiRequest("http://localhost:3000/api/components/" + JSON.parse(sessionStorage.getItem('user')).id, requestOptions);
+        const json = await makeApiRequest("http://localhost:3000/api/components/" + JSON.parse(sessionStorage.getItem('user')).id, requestOptions);
 
-        handleApiResponseSuccess(response, "¡Componente creado con éxito! Puedes verlo en tu lista de componentes.", () => {
+        handleApiResponseSuccess(json, "¡Componente creado con éxito! Puedes verlo en tu lista de componentes.", () => {
             window.location.href = 'http://localhost:3000/information/components';
         });
     } catch (error) {
@@ -298,7 +298,7 @@ async function modifyComponent() {
     }
 
     try {
-        const response = await makeApiRequest('http://localhost:3000/api/components/' + JSON.parse(sessionStorage.getItem('user')).id + '/component/' + JSON.parse(sessionStorage.getItem('selectedComponent')).data.id, {
+        const json = await makeApiRequest('http://localhost:3000/api/components/' + JSON.parse(sessionStorage.getItem('user')).id + '/component/' + JSON.parse(sessionStorage.getItem('selectedComponent')).data.id, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -306,7 +306,7 @@ async function modifyComponent() {
             body: JSON.stringify(component)
         });
 
-        handleApiResponseSuccess(response, "¡Componente modificado con éxito!", () => {
+        handleApiResponseSuccess(json, "¡Componente modificado con éxito!", () => {
             window.location.href = 'http://localhost:3000/information/components';
         });
     } catch (error) {
@@ -322,11 +322,11 @@ async function deleteComponent(id) {
             return;
         }
 
-        const response = await makeApiRequest('http://localhost:3000/api/components/' + JSON.parse(sessionStorage.getItem('user')).id + '/component/' + id, {
+        const json = await makeApiRequest('http://localhost:3000/api/components/' + JSON.parse(sessionStorage.getItem('user')).id + '/component/' + id, {
             method: 'DELETE'
         });
 
-        handleApiResponseSuccess(response, "¡Componente eliminado con éxito!", () => {
+        handleApiResponseSuccess(json, "¡Componente eliminado con éxito!", () => {
             window.location.href = 'http://localhost:3000/information/components';
         });
     } catch (error) {
@@ -376,10 +376,10 @@ async function viewComponent(event) {
 // Función para ver detalles de un componente y redirigir a la página correspondiente
 async function viewDetails(componentId) {
     try {
-        const response = await makeApiRequest('http://localhost:3000/api/components/' + JSON.parse(sessionStorage.getItem('user')).id + '/component/' + componentId);
+        const json = await makeApiRequest('http://localhost:3000/api/components/' + JSON.parse(sessionStorage.getItem('user')).id + '/component/' + componentId);
 
-        handleApiResponseSuccess(response, "Componente obtenido con éxito", () => {
-            const component = response;
+        handleApiResponseSuccess(json, "Componente obtenido con éxito", () => {
+            const component = json;
             sessionStorage.setItem('selectedComponent', JSON.stringify(component));
             window.location.href = 'http://localhost:3000/information/component';
         });
